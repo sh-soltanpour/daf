@@ -1,0 +1,187 @@
+::placeholder {
+  font-family: 'IRANSans';
+}
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: 'IRANSans';
+  background: #f9f9f9;
+}
+header {
+  display: flex;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba($color: #000000, $alpha: 0.1);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: map-get($map: $header, $key: height);
+  align-items: center;
+  padding: 0 30px;
+  #logo {
+    flex: 0 0 auto;
+  }
+  nav {
+    flex: 1 0 0;
+  }
+  #profile {
+    flex: 0 0 auto;
+    color: #555555;
+  }
+}
+main {
+  display: flex;
+  padding-top: map-get($map: $header, $key: height);
+  min-height: 100vh;
+}
+.search-box {
+  width: 100%;
+  background: #f9f9f9;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  border: 4px solid #ffffff;
+  display: flex;
+  .search-input {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 6px 12px;
+  }
+}
+aside {
+  flex: 0 0 240px;
+  padding: 25px;
+  padding-left: 0;
+  #user-list-wrapper {
+    padding: 10px 20px;
+    background: #ffffff;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    .user-list {
+      .user-item-container {
+        border-bottom: 1px dashed #eeeeee;
+        &:last-child {
+          border-bottom: 0;
+        }
+        .user-item {
+          display: flex;
+          padding: 7px 0;
+          align-items: center;
+          .user-item-avatar {
+            flex: 0 0 50px;
+            height: 50px;
+            width: 50px;
+            background: #cccccc;
+            border-radius: 60px;
+            margin-left: 12px;
+          }
+          .user-item-content {
+            flex: 1 0 auto;
+            .user-item-title {
+              margin-bottom: 7px;
+              font-size: 14px;
+            }
+            .user-item-desc {
+              font-size: 12px;
+              color: #888888;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+#job-list-wrapper {
+  flex: 1 0 0;
+  min-width: 0;
+  .job-list {
+    .job-item-container {
+      padding: 25px;
+      .job-item {
+        display: flex;
+        padding: 20px;
+        background: #ffffff;
+        margin: 0 0 15px;
+        box-shadow: $box-shadow;
+        border-radius: 3px;
+        .job-item-avatar {
+          flex: 0 0 map-get($map: $job-item, $key: image-height);
+          height: map-get($map: $job-item, $key: image-height);
+          width: map-get($map: $job-item, $key: image-height);
+          background: #fafafa;
+          border: 1px solid #eeeeee;
+          margin-left: 20px;
+          border-radius: 4px;
+        }
+        .job-item-content {
+          min-width: 0;
+          flex: 1 0 0;
+          padding: 5px 0;
+          .job-item-title-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            .job-item-title {
+              font-size: 18px;
+              font-weight: bold;
+              margin-bottom: 12px;
+            }
+            .job-item-date {
+              display: flex;
+              font-size: 12px;
+              background: #f5f5f5;
+              padding: 3px 6px;
+              border-radius: 3px;
+              color: #666666;
+              .job-item-date-label {
+                margin-left: 5px;
+              }
+            }
+          }
+          .job-item-desc {
+            $font-size: 14px;
+            $line-height: 1.5;
+            font-size: $font-size;
+            line-height: $line-height;
+            height: $font-size * $line-height * 2; // 2 lines
+            margin-bottom: 0;
+            overflow: hidden;
+          }
+          .skills-container {
+            display: flex;
+            align-items: center;
+            margin-top: 7px;
+            .skills-label {
+              margin-left: 5px;
+              font-size: 12px;
+              color: #999999;
+            }
+            .skill-list {
+              display: flex;
+              margin: 0;
+              .skill-item {
+                color: #777777;
+                font-weight: bold;
+                flex: 0 0 auto;
+                padding: 3px 5px;
+                background: #f9f9f9;
+                border-radius: 3px;
+                border: 1px solid #eeeeee;
+                margin: 0 2px;
+                font-family: sans-serif;
+                font-size: 12px;
+                &:first-child {
+                  margin-right: 0;
+                }
+                &:last-child {
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
