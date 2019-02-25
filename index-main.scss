@@ -1,38 +1,5 @@
-::placeholder {
-  font-family: 'IRANSans';
-}
-body {
-  direction: rtl;
-  text-align: right;
-  font-family: 'IRANSans';
-  background: #f9f9f9;
-}
-header {
-  display: flex;
-  background: #ffffff;
-  box-shadow: 0 1px 4px rgba($color: #000000, $alpha: 0.1);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: map-get($map: $header, $key: height);
-  align-items: center;
-  padding: 0 30px;
-  #logo {
-    flex: 0 0 auto;
-  }
-  nav {
-    flex: 1 0 0;
-  }
-  #profile {
-    flex: 0 0 auto;
-    color: #555555;
-  }
-}
 main {
   display: flex;
-  padding-top: map-get($map: $header, $key: height);
-  min-height: 100vh;
 }
 .search-box {
   width: 100%;
@@ -52,28 +19,31 @@ main {
 aside {
   flex: 0 0 240px;
   padding: 25px;
+  padding-right: 0;
   padding-left: 0;
   #user-list-wrapper {
-    padding: 10px 20px;
-    background: #ffffff;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    // padding: 10px 20px;
     border-radius: 4px;
     .user-list {
       .user-item-container {
-        border-bottom: 1px dashed #eeeeee;
-        &:last-child {
-          border-bottom: 0;
-        }
+        // border-bottom: 1px dashed #eeeeee;
+        // &:last-child {
+        //   border-bottom: 0;
+        // }
         .user-item {
           display: flex;
-          padding: 7px 0;
           align-items: center;
+          background: #ffffff;
+          box-shadow: $box-shadow;
+          border-radius: 4px;
+          padding: 8px 10px;
+          margin-bottom: 4px;
           .user-item-avatar {
             flex: 0 0 50px;
             height: 50px;
             width: 50px;
             background: #cccccc;
-            border-radius: 60px;
+            border-radius: 5px;
             margin-left: 12px;
           }
           .user-item-content {
@@ -96,8 +66,9 @@ aside {
   flex: 1 0 0;
   min-width: 0;
   .job-list {
+    padding: 25px;
+    padding-left: 0;
     .job-item-container {
-      padding: 25px;
       .job-item {
         display: flex;
         padding: 20px;
