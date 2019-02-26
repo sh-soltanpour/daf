@@ -28,6 +28,15 @@
   font-weight: normal;
   src: url("./iransans/eot/IRANSansWeb.eot");
   src: url("./iransans/eot/IRANSansWeb.eot?#iefix") format("embedded-opentype"), url("./iransans/woff2/IRANSansWeb.woff2") format("woff2"), url("./iransans/woff/IRANSansWeb.woff") format("woff"), url("./iransans/ttf/IRANSansWeb.ttf") format("truetype"); }
+[class^='flaticon-']:before,
+[class*=' flaticon-']:before,
+[class^='flaticon-']:after,
+[class*=' flaticon-']:after {
+  font-family: Flaticon;
+  font-size: inherit;
+  font-style: normal;
+  margin-left: 0; }
+
 html,
 body,
 div,
@@ -549,15 +558,16 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
-    background: #fff;
+    padding: 5px 7px;
     border-radius: 4px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    margin: 4px; }
+    margin: 4px 7px;
+    border: 1px solid #bbbbbb;
+    position: relative;
+    cursor: pointer; }
     .user-skills .skills-list .skill-item .skill-name {
       line-height: 1;
       display: inline-block;
-      margin: 2px 10px 0 5px; }
+      margin: 2px 10px 0 3px; }
     .user-skills .skills-list .skill-item .skill-rating {
       display: inline-block;
       background: #c8eef3;
@@ -569,5 +579,28 @@ header {
       margin: 0;
       font-size: 14px;
       border-radius: 3px; }
+    .user-skills .skills-list .skill-item .skill-endorse {
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      transform: translate(50%, -50%);
+      display: inline-block;
+      padding: 5px 0 1px;
+      line-height: 1;
+      font-size: 20px;
+      text-shadow: 1px 0 #f9f9f9, 2px 0 #f9f9f9;
+      z-index: 2;
+      background: #f9f9f9;
+      color: #bbbbbb; }
+    .user-skills .skills-list .skill-item:hover, .user-skills .skills-list .skill-item.endorsed {
+      border-color: #00d500; }
+      .user-skills .skills-list .skill-item:hover .skill-endorse, .user-skills .skills-list .skill-item.endorsed .skill-endorse {
+        color: #00d500; }
+    .user-skills .skills-list .skill-item.endorsed .skill-endorse .flaticon-check-mark {
+      font-size: 12px; }
+    .user-skills .skills-list .skill-item.endorsed:hover {
+      border-color: #d50000; }
+      .user-skills .skills-list .skill-item.endorsed:hover .skill-endorse {
+        color: #d50000; }
 
 /*# sourceMappingURL=user.css.map */
