@@ -33,7 +33,7 @@
 [class^='flaticon-']:after,
 [class*=' flaticon-']:after {
   font-family: Flaticon;
-  font-size: inherit;
+  font-size: 16px;
   font-style: normal;
   margin-left: 0; }
 
@@ -447,8 +447,9 @@ body {
   direction: rtl;
   text-align: right;
   font-family: 'IRANSans';
-  background: #f9f9f9;
-  padding-top: 60px; }
+  background: #f6f6f6;
+  padding-top: 60px;
+  min-height: 100vh; }
 
 header {
   background: #ffffff;
@@ -459,32 +460,37 @@ header {
   left: 0;
   height: 60px; }
   header #header {
-    display: flex;
-    align-items: center;
     padding: 0;
     height: 100%; }
     header #header #logo {
-      flex: 0 0 auto;
-      display: flex;
-      align-items: center;
-      width: 150px;
-      height: 55px;
+      width: 190px;
+      height: 60px;
       max-width: 100%;
       max-height: 100%; }
       header #header #logo > img {
         display: block;
         max-width: 100%;
-        max-height: 100%; }
-    header #header nav {
-      flex: 1 0 0; }
-    header #header #profile {
-      flex: 0 0 auto;
-      color: #555555; }
+        height: 100%; }
+
+main {
+  min-height: calc(100vh - 125px);
+  padding-bottom: 1px; }
+
+footer {
+  background: #333333;
+  color: #888888;
+  text-align: center;
+  text-shadow: 0 1px 2px #000000;
+  box-shadow: inset 0 3px 4px -3px #000000;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 #slider {
   display: block;
   width: 100%;
-  padding: 40px 0 70px;
+  padding: 40px 0 60px;
   background: #c8eef3;
   margin-bottom: -50px;
   box-shadow: inset 0 -10px 10px -10px #add5d7; }
@@ -498,6 +504,31 @@ header {
     line-height: 1.6;
     text-align: justify;
     text-indent: 35px; }
+  #slider .slider-container .main-search-box {
+    min-width: 400px;
+    width: 60%;
+    background: #e0f7fa;
+    box-shadow: 0 1px 6px rgba(0, 96, 100, 0.15);
+    margin-bottom: 10px;
+    border-bottom: 3px solid #00acc1;
+    display: flex;
+    margin: 25px auto 0;
+    font-size: 19px; }
+    #slider .slider-container .main-search-box > input {
+      flex: 1 0 auto;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      padding: 2px 12px;
+      color: #006064; }
+      #slider .slider-container .main-search-box > input::placeholder {
+        color: rgba(0, 96, 100, 0.5); }
+    #slider .slider-container .main-search-box > button {
+      background: #00acc1;
+      border: none;
+      color: #ffffff;
+      padding: 5px 15px;
+      margin: 5px; }
 
 #slider {
   padding: 75px 0;
@@ -544,63 +575,106 @@ header {
       display: block; }
 
 .user-description {
-  margin: 25px 5px; }
+  margin: 25px 0; }
   .user-description > p {
     line-height: 1.9;
     font-size: 16px;
     color: #444;
     text-align: justify; }
 
-.user-skills .skills-list {
-  display: flex;
-  direction: ltr; }
-  .user-skills .skills-list .skill-item {
+.user-skills {
+  margin: 25px 0; }
+  .user-skills h4 {
+    font-size: 22px;
+    font-weight: bold; }
+  .user-skills .skills-list {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px 7px;
+    direction: ltr; }
+    .user-skills .skills-list .skill-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 7px;
+      border-radius: 4px;
+      margin: 4px 7px;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      cursor: pointer; }
+      .user-skills .skills-list .skill-item .skill-name {
+        line-height: 1;
+        display: inline-block;
+        margin: 2px 10px 0 3px; }
+      .user-skills .skills-list .skill-item .skill-rating {
+        display: inline-block;
+        background: #c8eef3;
+        text-align: center;
+        color: #006064;
+        height: 25px;
+        min-width: 25px;
+        padding: 7px 5px 5px;
+        margin: 0;
+        font-size: 14px;
+        border-radius: 3px;
+        position: relative; }
+        .user-skills .skills-list .skill-item .skill-rating .remove-skill,
+        .user-skills .skills-list .skill-item .skill-rating .skill-endorse {
+          position: absolute;
+          right: 0;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          line-height: 1;
+          font-size: 20px;
+          z-index: 2;
+          background: #f9f9f9;
+          opacity: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 3px;
+          padding-top: 5px;
+          transition: all 0.2s ease; }
+      .user-skills .skills-list .skill-item:hover .skill-endorse {
+        opacity: 1;
+        background: #00b800;
+        color: #ffffff; }
+      .user-skills .skills-list .skill-item:hover .remove-skill {
+        opacity: 1;
+        background: #d50000;
+        color: #ffffff; }
+      .user-skills .skills-list .skill-item.endorsed {
+        cursor: default; }
+        .user-skills .skills-list .skill-item.endorsed .skill-rating {
+          background: #00b800;
+          color: #ffffff; }
+          .user-skills .skills-list .skill-item.endorsed .skill-rating .skill-endorse {
+            display: none; }
+
+.add-skill-form-container {
+  display: flex; }
+  .add-skill-form-container .add-skill-form {
+    flex: 0 0 auto;
+    height: 100%;
+    display: flex;
+    border: 3px solid #ffffff;
+    background: #ffffff;
     border-radius: 4px;
-    margin: 4px 7px;
-    border: 1px solid #bbbbbb;
-    position: relative;
-    cursor: pointer; }
-    .user-skills .skills-list .skill-item .skill-name {
-      line-height: 1;
-      display: inline-block;
-      margin: 2px 10px 0 3px; }
-    .user-skills .skills-list .skill-item .skill-rating {
-      display: inline-block;
-      background: #c8eef3;
-      text-align: center;
-      color: #006064;
-      height: 25px;
-      min-width: 25px;
-      padding: 7px 5px 5px;
-      margin: 0;
-      font-size: 14px;
-      border-radius: 3px; }
-    .user-skills .skills-list .skill-item .skill-endorse {
-      position: absolute;
-      right: -1px;
-      top: 50%;
-      transform: translate(50%, -50%);
-      display: inline-block;
-      padding: 5px 0 1px;
-      line-height: 1;
-      font-size: 20px;
-      text-shadow: 1px 0 #f9f9f9, 2px 0 #f9f9f9;
-      z-index: 2;
+    font-size: 16px;
+    padding: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2), inset 0 0 2px rgba(0, 0, 0, 0.05); }
+    .add-skill-form-container .add-skill-form .add-skill-input {
       background: #f9f9f9;
-      color: #bbbbbb; }
-    .user-skills .skills-list .skill-item:hover, .user-skills .skills-list .skill-item.endorsed {
-      border-color: #00d500; }
-      .user-skills .skills-list .skill-item:hover .skill-endorse, .user-skills .skills-list .skill-item.endorsed .skill-endorse {
-        color: #00d500; }
-    .user-skills .skills-list .skill-item.endorsed .skill-endorse .flaticon-check-mark {
-      font-size: 12px; }
-    .user-skills .skills-list .skill-item.endorsed:hover {
-      border-color: #d50000; }
-      .user-skills .skills-list .skill-item.endorsed:hover .skill-endorse {
-        color: #d50000; }
+      border: 1px solid #eeeeee;
+      width: 200px;
+      padding: 5px 8px; }
+    .add-skill-form-container .add-skill-form button[type='submit'] {
+      flex: 0 0 auto;
+      background: #0097a7;
+      border: none;
+      color: #ffffff;
+      padding: 0 10px;
+      margin-right: 6px;
+      border-radius: 3px; }
 
 /*# sourceMappingURL=user.css.map */

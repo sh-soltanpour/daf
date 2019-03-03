@@ -51,7 +51,7 @@ $avatar-height: 200px;
 }
 
 .user-description {
-  margin: 25px 5px;
+  margin: 25px 0;
   > p {
     line-height: 1.9;
     font-size: 16px;
@@ -61,20 +61,24 @@ $avatar-height: 200px;
 }
 
 .user-skills {
+  margin: 25px 0;
+  h4 {
+    font-size: 22px;
+    font-weight: bold;
+    // margin-bottom: 25px;
+  }
   .skills-list {
     display: flex;
     direction: ltr;
     .skill-item {
-      $border-color: #bbbbbb;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 5px 7px;
       border-radius: 4px;
       margin: 4px 7px;
-      // background: #fff;
-      // box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-      border: 1px solid $border-color;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
       position: relative;
       cursor: pointer;
       .skill-name {
@@ -93,43 +97,79 @@ $avatar-height: 200px;
         margin: 0;
         font-size: 14px;
         border-radius: 3px;
-      }
-      .skill-endorse {
-        position: absolute;
-        right: -1px;
-        top: 50%;
-        transform: translate(50%, -50%);
-        display: inline-block;
-        padding: 5px 0 1px;
-        line-height: 1;
-        font-size: 20px;
-        text-shadow: 1px 0 #f9f9f9, 2px 0 #f9f9f9;
-        z-index: 2;
-        background: #f9f9f9;
-        color: $border-color;
-      }
-      &:hover,
-      &.endorsed {
-        $hover-color: #00d500;
-        border-color: $hover-color;
+        position: relative;
+        .remove-skill,
         .skill-endorse {
-          color: $hover-color;
+          position: absolute;
+          right: 0;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          line-height: 1;
+          font-size: 20px;
+          z-index: 2;
+          background: #f9f9f9;
+          opacity: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 3px;
+          padding-top: 5px;
+          transition: all 0.2s ease;
+        }
+      }
+      &:hover {
+        .skill-endorse {
+          opacity: 1;
+          background: #00b800;
+          color: #ffffff;
+        }
+        .remove-skill {
+          opacity: 1;
+          background: #d50000;
+          color: #ffffff;
         }
       }
       &.endorsed {
-        .skill-endorse {
-          .flaticon-check-mark {
-            font-size: 12px;
-          }
-        }
-        &:hover {
-          $hover-color: #d50000;
-          border-color: $hover-color;
+        cursor: default;
+        .skill-rating {
+          background: #00b800;
+          color: #ffffff;
           .skill-endorse {
-            color: $hover-color;
+            display: none;
           }
         }
       }
+    }
+  }
+}
+
+.add-skill-form-container {
+  display: flex;
+  .add-skill-form {
+    flex: 0 0 auto;
+    height: 100%;
+    display: flex;
+    border: 3px solid #ffffff;
+    background: #ffffff;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 2px;
+    box-shadow: 0 1px 4px rgba(#000000, 0.2), inset 0 0 2px rgba(#000000, 0.05);
+    .add-skill-input {
+      background: #f9f9f9;
+      border: 1px solid #eeeeee;
+      width: 200px;
+      padding: 5px 8px;
+    }
+    button[type='submit'] {
+      flex: 0 0 auto;
+      background: #0097a7;
+      border: none;
+      color: #ffffff;
+      padding: 0 10px;
+      margin-right: 6px;
+      border-radius: 3px;
     }
   }
 }

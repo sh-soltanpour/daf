@@ -14,160 +14,179 @@
 <body>
   <header>
     <div class="container h-100">
-      <div id="header">
-        <a id="logo" href="/"><img src="./images/linkedin.png" alt="logo"></a>
-        <nav></nav>
-        <div id="profile">
-          حساب کاربری
-        </div>
+      <div id="header" class="row align-items-center justify-content-between">
+        <a id="logo" class="col-auto d-flex align-items-center" href="/"><img src="./images/logo.png" alt="logo"></a>
+        <nav class="col-auto row align-items-center">
+          <div id="profile" class="col-auto">
+            حساب کاربری
+          </div>
+          <div id="logout" class="col-auto">
+            خروج
+          </div>
+        </nav>
       </div>
     </div>
   </header>
+  <main>
 
-  <section id="slider">
-    <div class="slider-container container">
-      <h1>جاب‌اونجا خوب چیزی است!</h1>
-      <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در
-        ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای
-        زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان
-        رایانه
-        ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
-        راهکارها و شرایط سخت تایپ به پایان رسد وزمان </p>
-    </div>
-  </section>
-
-  <main class="container">
-    <aside>
-      <div class="search-box">
-        <input class="search-input" type="text" placeholder="جستجو نام کاربر">
+    <section id="slider">
+      <div class="slider-container container">
+        <h1>جاب‌اونجا خوب است!</h1>
+        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+          در</p>
+        <div class="main-search-box">
+          <input type="text" placeholder="جستجو در جاب‌اونجا">
+          <button type="submit">جستجو</button>
+        </div>
       </div>
-      <div id="user-list-wrapper">
-        <ul class="user-list">
-          <li class="user-item-container">
-            <div class="user-item">
-              <img class="user-item-avatar" src="./images/avatar2.jpg" alt="avatar">
-              <div class="user-item-content">
-                <h4 class="user-item-title">صادق حائری</h4>
-                <span class="user-item-desc">گیک</span>
+    </section>
+
+    <div id="wrapper" class="container">
+      <aside>
+        <div class="search-box">
+          <input class="search-input" type="text" placeholder="جستجو نام کاربر">
+        </div>
+        <div id="user-list-wrapper">
+          <ul class="user-list">
+            <li class="user-item-container">
+              <div class="user-item">
+                <img class="user-item-avatar" src="./images/avatar2.jpg" alt="avatar">
+                <div class="user-item-content">
+                  <h4 class="user-item-title">صادق حائری</h4>
+                  <span class="user-item-desc">گیک</span>
+                </div>
+              </div>
+            </li>
+            <li class="user-item-container">
+              <div class="user-item">
+                <img class="user-item-avatar" src="./images/avatar.jpg" alt="">
+                <div class="user-item-content">
+                  <h4 class="user-item-title">محمدرضا کیانی</h4>
+                  <span class="user-item-desc">چیف تی‌ای</span>
+                </div>
+              </div>
+            </li>
+            <li class="user-item-container">
+              <div class="user-item">
+                <img class="user-item-avatar" src="./images/avatar3.jpg" alt="">
+                <div class="user-item-content">
+                  <h4 class="user-item-title">آبتین باطنی</h4>
+                  <span class="user-item-desc">توسعه‌دهنده‌ی فرانت‌اند</span>
+                </div>
+              </div>
+            </li>
+            <li class="user-item-container">
+              <div class="user-item">
+                <img class="user-item-avatar" src="./images/avatar4.jpg" alt="">
+                <div class="user-item-content">
+                  <h4 class="user-item-title">کاربر ناشناس</h4>
+                  <span class="user-item-desc">دانشجو</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </aside>
+
+      <section id="job-list-wrapper">
+        <ul class="job-list">
+          <li class="job-item-container">
+            <div class="job-item">
+              <img class="job-item-avatar" src="https://ponisha.ir/defaults/category-character/3.png" alt="">
+              <div class="job-item-content">
+                <div class="job-item-title-container">
+                  <h3 class="job-item-title">وبسایت فروشگاهی مشابه دیجی کالا</h3>
+                  <div class="job-item-date">
+                    <span class="job-item-date-label">زمان باقی‌مانده:</span>
+                    <span>۱۷:۲۵</span>
+                  </div>
+                </div>
+                <p class="job-item-desc">یک فروشگاه اینرنتی با قابلیت مدیریت حرفه ای سبد خرید حرفه ای مقایسه محصولات ارسال پیامک و ایمیل
+                  گزارش
+                  گیری جامع قالب...</p>
+                <div class="job-item-footer">
+                  <div class="budget-container"><span class="budget-label">بودجه:</span><span class="budget-content">۲۵۰۰ تومان</span></div>
+                  <div class="skills-container">
+                    <span class="skills-label">مهارت‌ها:</span>
+                    <ul class="skill-list">
+                      <li class="skill-item">HTML</li>
+                      <li class="skill-item">CSS</li>
+                      <li class="skill-item">JavaScript</li>
+                      <li class="skill-item">TypeScript</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
-          <li class="user-item-container">
-            <div class="user-item">
-              <img class="user-item-avatar" src="./images/avatar.jpg" alt="">
-              <div class="user-item-content">
-                <h4 class="user-item-title">محمدرضا کیانی</h4>
-                <span class="user-item-desc">چیف تی‌ای</span>
+
+          <li class="job-item-container">
+            <div class="job-item">
+              <img class="job-item-avatar" src="https://ponisha.ir/defaults/category-character/3.png" alt="">
+              <div class="job-item-content">
+                <div class="job-item-title-container">
+                  <h3 class="job-item-title">وبسایت فروشگاهی مشابه دیجی کالا</h3>
+                  <div class="job-item-date">
+                    <span class="job-item-date-label">زمان باقی‌مانده:</span>
+                    <span>۱۷:۲۵</span>
+                  </div>
+                </div>
+                <p class="job-item-desc">یک فروشگاه اینرنتی با قابلیت مدیریت حرفه ای سبد خرید حرفه ای مقایسه محصولات ارسال پیامک و ایمیل
+                  گزارش
+                  گیری جامع قالب...</p>
+                <div class="job-item-footer">
+                  <div class="budget-container"><span class="budget-label">بودجه:</span><span class="budget-content">۲۵۰۰ تومان</span></div>
+                  <div class="skills-container">
+                    <span class="skills-label">مهارت‌ها:</span>
+                    <ul class="skill-list">
+                      <li class="skill-item">HTML</li>
+                      <li class="skill-item">CSS</li>
+                      <li class="skill-item">JavaScript</li>
+                      <li class="skill-item">TypeScript</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
-          <li class="user-item-container">
-            <div class="user-item">
-              <img class="user-item-avatar" src="./images/avatar3.jpg" alt="">
-              <div class="user-item-content">
-                <h4 class="user-item-title">آبتین باطنی</h4>
-                <span class="user-item-desc">توسعه‌دهنده‌ی فرانت‌اند</span>
-              </div>
-            </div>
-          </li>
-          <li class="user-item-container">
-            <div class="user-item">
-              <img class="user-item-avatar" src="./images/avatar4.jpg" alt="">
-              <div class="user-item-content">
-                <h4 class="user-item-title">کاربر ناشناس</h4>
-                <span class="user-item-desc">دانشجو</span>
+
+          <li class="job-item-container ended">
+            <div class="job-item">
+              <img class="job-item-avatar" src="https://ponisha.ir/defaults/category-character/3.png" alt="">
+              <div class="job-item-content">
+                <div class="job-item-title-container">
+                  <h3 class="job-item-title">وبسایت فروشگاهی مشابه دیجی کالا</h3>
+                  <div class="job-item-date">
+                    مهلت تمام شده
+                  </div>
+                </div>
+                <p class="job-item-desc">یک فروشگاه اینرنتی با قابلیت مدیریت حرفه ای سبد خرید حرفه ای مقایسه محصولات ارسال پیامک و ایمیل
+                  گزارش
+                  گیری جامع قالب...</p>
+                <div class="job-item-footer">
+                  <div class="budget-container"><span class="budget-label">بودجه:</span><span class="budget-content">۲۵۰۰ تومان</span></div>
+                  <div class="skills-container">
+                    <span class="skills-label">مهارت‌ها:</span>
+                    <ul class="skill-list">
+                      <li class="skill-item">HTML</li>
+                      <li class="skill-item">CSS</li>
+                      <li class="skill-item">JavaScript</li>
+                      <li class="skill-item">TypeScript</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
         </ul>
-
-      </div>
-    </aside>
-
-    <section id="job-list-wrapper">
-      <ul class="job-list">
-        <li class="job-item-container">
-          <div class="job-item">
-            <img class="job-item-avatar" src="https://ponisha.ir/defaults/category-character/3.png" alt="">
-            <div class="job-item-content">
-              <div class="job-item-title-container">
-                <h3 class="job-item-title">وبسایت فروشگاهی مشابه دیجی کالا</h3>
-                <div class="job-item-date">
-                  <span class="job-item-date-label">تاریخ پایان:</span>
-                  <span>۱۳۹۹/۰۶/۱۴</span>
-                </div>
-              </div>
-              <p class="job-item-desc">یک فروشگاه اینرنتی با قابلیت مدیریت حرفه ای سبد خرید حرفه ای مقایسه محصولات ارسال پیامک و ایمیل گزارش
-                گیری جامع قالب...</p>
-              <div class="skills-container">
-                <span class="skills-label">مهارت‌ها:</span>
-                <ul class="skill-list">
-                  <li class="skill-item">HTML</li>
-                  <li class="skill-item">CSS</li>
-                  <li class="skill-item">JavaScript</li>
-                  <li class="skill-item">TypeScript</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li class="job-item-container">
-          <div class="job-item">
-            <img class="job-item-avatar" src="https://ponisha.ir/defaults/category-character/3.png" alt="">
-            <div class="job-item-content">
-              <div class="job-item-title-container">
-                <h3 class="job-item-title">وبسایت فروشگاهی مشابه دیجی کالا</h3>
-                <div class="job-item-date">
-                  <span class="job-item-date-label">تاریخ پایان:</span>
-                  <span>۱۳۹۹/۰۶/۱۴</span>
-                </div>
-              </div>
-              <p class="job-item-desc">یک فروشگاه اینرنتی با قابلیت مدیریت حرفه ای سبد خرید حرفه ای مقایسه محصولات ارسال پیامک و ایمیل گزارش
-                گیری جامع قالب...</p>
-              <div class="skills-container">
-                <span class="skills-label">مهارت‌ها:</span>
-                <ul class="skill-list">
-                  <li class="skill-item">HTML</li>
-                  <li class="skill-item">CSS</li>
-                  <li class="skill-item">JavaScript</li>
-                  <li class="skill-item">TypeScript</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li class="job-item-container">
-          <div class="job-item">
-            <img class="job-item-avatar" src="https://ponisha.ir/defaults/category-character/3.png" alt="">
-            <div class="job-item-content">
-              <div class="job-item-title-container">
-                <h3 class="job-item-title">وبسایت فروشگاهی مشابه دیجی کالا</h3>
-                <div class="job-item-date">
-                  <span class="job-item-date-label">تاریخ پایان:</span>
-                  <span>۱۳۹۹/۰۶/۱۴</span>
-                </div>
-              </div>
-              <p class="job-item-desc">یک فروشگاه اینرنتی با قابلیت مدیریت حرفه ای سبد خرید حرفه ای مقایسه محصولات ارسال پیامک و ایمیل گزارش
-                گیری جامع قالب...</p>
-              <div class="skills-container">
-                <span class="skills-label">مهارت‌ها:</span>
-                <ul class="skill-list">
-                  <li class="skill-item">HTML</li>
-                  <li class="skill-item">CSS</li>
-                  <li class="skill-item">JavaScript</li>
-                  <li class="skill-item">TypeScript</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </section>
+      </section>
+    </div>
   </main>
 
-  <footer></footer>
+  <footer>
+    <span>&#169; تمامی حقوق این سایت متعلق به جاب‌اونجا می‌باشد</span>
+  </footer>
 </body>
 
 </html>

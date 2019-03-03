@@ -530,150 +530,143 @@ footer {
       padding: 5px 15px;
       margin: 5px; }
 
-#wrapper {
-  display: flex; }
-
-.search-box {
-  width: 100%;
-  background: #f9f9f9;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  margin-bottom: 10px;
-  border: 4px solid #ffffff;
-  display: flex; }
-  .search-box .search-input {
-    flex: 1 0 auto;
-    background: transparent;
-    border: 0;
-    outline: 0;
-    padding: 6px 12px; }
-
-aside {
-  flex: 0 0 240px;
-  padding: 25px;
-  padding-right: 0;
-  padding-left: 0; }
-  aside #user-list-wrapper {
-    border-radius: 4px; }
-    aside #user-list-wrapper .user-list .user-item-container .user-item {
+.project-container {
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 4px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  margin: 0 0 35px;
+  padding: 35px;
+  min-height: 250px; }
+  .project-container .project-avatar {
+    flex: 0 0 auto;
+    width: 180px;
+    height: 180px;
+    margin: 0 0 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #f3f3f3; }
+    .project-container .project-avatar > img {
+      max-width: 100%; }
+  .project-container .project-content .project-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px; }
+  .project-container .project-content .project-info {
+    list-style: none;
+    margin-top: 25px; }
+    .project-container .project-content .project-info > li {
       display: flex;
       align-items: center;
-      background: #ffffff;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
-      padding: 8px 10px;
-      margin-bottom: 4px;
-      transition: all 0.3s ease;
-      cursor: pointer; }
-      aside #user-list-wrapper .user-list .user-item-container .user-item:hover {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
-      aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-avatar {
-        flex: 0 0 50px;
-        height: 50px;
-        width: 50px;
-        background: #cccccc;
-        border-radius: 5px;
-        margin-left: 12px; }
-      aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-content {
-        flex: 1 0 auto; }
-        aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-content .user-item-title {
-          margin-bottom: 7px;
-          font-size: 14px; }
-        aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-content .user-item-desc {
-          font-size: 12px;
-          color: #888888; }
-
-#job-list-wrapper {
-  flex: 1 0 0;
-  min-width: 0; }
-  #job-list-wrapper .job-list {
-    padding: 25px;
-    padding-left: 0; }
-    #job-list-wrapper .job-list .job-item-container .job-item {
+      margin-bottom: 10px; }
+      .project-container .project-content .project-info > li:last-child {
+        margin-bottom: 0; }
+      .project-container .project-content .project-info > li > i:before {
+        margin-left: 10px;
+        font-size: 18px;
+        line-height: 1;
+        display: inline-block; }
+    .project-container .project-content .project-info .project-deadline {
+      color: #666666; }
+      .project-container .project-content .project-info .project-deadline.ended {
+        color: #d50000; }
+    .project-container .project-content .project-info .project-budget {
+      font-size: 18px;
+      font-weight: bold;
+      color: #00838f; }
+    .project-container .project-content .project-info .won-user {
+      font-weight: bold;
+      color: #388e3c; }
+  .project-container .project-description {
+    margin-top: 25px; }
+    .project-container .project-description > h4 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px; }
+    .project-container .project-description > p {
+      font-size: 16px;
+      text-align: justify;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      text-indent: 20px; }
+      .project-container .project-description > p:last-child {
+        margin-bottom: 0; }
+  .project-container .project-skills {
+    margin: 35px -35px 35px;
+    background: #f9f9f9;
+    padding: 30px 35px 25px;
+    border-top: 2px dashed #4dd0e1;
+    border-bottom: 1px solid #dddddd; }
+    .project-container .project-skills > h4 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #00838f; }
+    .project-container .project-skills .skills-list {
       display: flex;
-      padding: 20px;
+      direction: ltr;
+      margin-top: 10px; }
+      .project-container .project-skills .skills-list .skill-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 7px;
+        border-radius: 4px;
+        margin: 4px 7px;
+        background: #fff;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        cursor: pointer; }
+        .project-container .project-skills .skills-list .skill-item .skill-name {
+          line-height: 1;
+          display: inline-block;
+          margin: 2px 10px 0 3px; }
+        .project-container .project-skills .skills-list .skill-item .skill-rating {
+          display: inline-block;
+          background: #c8eef3;
+          text-align: center;
+          color: #006064;
+          height: 25px;
+          min-width: 25px;
+          padding: 7px 5px 5px;
+          margin: 0;
+          font-size: 14px;
+          border-radius: 3px;
+          position: relative; }
+  .project-container .project-form .already-bid {
+    color: #388e3c;
+    font-size: 18px; }
+  .project-container .project-form .deadline-reached {
+    font-size: 18px;
+    color: #d50000;
+    display: flex;
+    align-items: center; }
+    .project-container .project-form .deadline-reached > i:before {
+      font-size: 22px; }
+  .project-container .project-form > h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px; }
+  .project-container .project-form .bid-form {
+    display: flex;
+    align-items: stretch; }
+    .project-container .project-form .bid-form .input-wrapper {
+      border: 2px solid #00bcd4;
       background: #ffffff;
-      margin: 0 0 15px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-      border-radius: 3px;
-      transition: all 0.3s ease;
-      cursor: pointer; }
-      #job-list-wrapper .job-list .job-item-container .job-item:hover {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
-      #job-list-wrapper .job-list .job-item-container .job-item .job-item-avatar {
-        flex: 0 0 128px;
-        height: 128px;
-        width: 128px;
-        background: #fafafa;
-        border: 1px solid #eeeeee;
-        margin-left: 20px;
-        border-radius: 4px; }
-      #job-list-wrapper .job-list .job-item-container .job-item .job-item-content {
-        min-width: 0;
-        flex: 1 0 0;
-        padding: 5px 0; }
-        #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container {
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between; }
-          #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container .job-item-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px; }
-          #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container .job-item-date {
-            display: flex;
-            font-size: 12px;
-            background: #f5f5f5;
-            padding: 3px 6px;
-            border-radius: 3px;
-            color: #555555; }
-            #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container .job-item-date .job-item-date-label {
-              margin-left: 5px; }
-        #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-desc {
-          font-size: 14px;
-          line-height: 1.5;
-          height: 42px;
-          margin-bottom: 0;
-          overflow: hidden;
-          color: #444444; }
-        #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .budget-container {
-          margin-top: 6px;
-          font-size: 14px;
-          font-weight: bold;
-          color: #00838f;
-          display: flex; }
-          #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .budget-container .budget-label {
-            margin-left: 4px; }
-        #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container {
-          display: flex;
-          align-items: center;
-          margin-top: 8px; }
-          #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skills-label {
-            margin-left: 5px;
-            font-size: 12px;
-            color: #999999; }
-          #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list {
-            display: flex;
-            margin: 0; }
-            #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list .skill-item {
-              color: #777777;
-              font-weight: bold;
-              flex: 0 0 auto;
-              padding: 3px 5px;
-              background: #f9f9f9;
-              border-radius: 3px;
-              border: 1px solid #eeeeee;
-              margin: 0 2px;
-              font-family: sans-serif;
-              font-size: 12px; }
-              #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list .skill-item:first-child {
-                margin-right: 0; }
-              #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list .skill-item:last-child {
-                margin-left: 0; }
-    #job-list-wrapper .job-list .job-item-container.ended {
-      opacity: 0.75; }
-      #job-list-wrapper .job-list .job-item-container.ended .job-item-content .job-item-title-container .job-item-date {
-        color: #ffffff;
-        background: #006064; }
+      border-radius: 4px;
+      padding: 5px 10px;
+      margin-left: 15px; }
+      .project-container .project-form .bid-form .input-wrapper > input {
+        background: transparent;
+        border: none;
+        margin-left: 7px; }
+      .project-container .project-form .bid-form .input-wrapper .bid-label {
+        align-self: center;
+        color: #0097a7; }
+    .project-container .project-form .bid-form > button {
+      padding: 0 10px;
+      background: #00acc1;
+      border-radius: 4px;
+      color: #ffffff;
+      border: none; }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=project.css.map */

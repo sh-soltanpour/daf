@@ -1,4 +1,4 @@
-main {
+#wrapper {
   display: flex;
 }
 .search-box {
@@ -10,6 +10,7 @@ main {
   border: 4px solid #ffffff;
   display: flex;
   .search-input {
+    flex: 1 0 auto;
     background: transparent;
     border: 0;
     outline: 0;
@@ -22,14 +23,9 @@ aside {
   padding-right: 0;
   padding-left: 0;
   #user-list-wrapper {
-    // padding: 10px 20px;
     border-radius: 4px;
     .user-list {
       .user-item-container {
-        // border-bottom: 1px dashed #eeeeee;
-        // &:last-child {
-        //   border-bottom: 0;
-        // }
         .user-item {
           display: flex;
           align-items: center;
@@ -38,6 +34,11 @@ aside {
           border-radius: 4px;
           padding: 8px 10px;
           margin-bottom: 4px;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          &:hover {
+            box-shadow: $box-shadow-hover;
+          }
           .user-item-avatar {
             flex: 0 0 50px;
             height: 50px;
@@ -76,6 +77,11 @@ aside {
         margin: 0 0 15px;
         box-shadow: $box-shadow;
         border-radius: 3px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        &:hover {
+          box-shadow: $box-shadow-hover;
+        }
         .job-item-avatar {
           flex: 0 0 map-get($map: $job-item, $key: image-height);
           height: map-get($map: $job-item, $key: image-height);
@@ -96,7 +102,7 @@ aside {
             .job-item-title {
               font-size: 18px;
               font-weight: bold;
-              margin-bottom: 12px;
+              margin-bottom: 10px;
             }
             .job-item-date {
               display: flex;
@@ -104,7 +110,7 @@ aside {
               background: #f5f5f5;
               padding: 3px 6px;
               border-radius: 3px;
-              color: #666666;
+              color: #555555;
               .job-item-date-label {
                 margin-left: 5px;
               }
@@ -118,37 +124,61 @@ aside {
             height: $font-size * $line-height * 2; // 2 lines
             margin-bottom: 0;
             overflow: hidden;
+            color: #444444;
           }
-          .skills-container {
-            display: flex;
-            align-items: center;
-            margin-top: 7px;
-            .skills-label {
-              margin-left: 5px;
-              font-size: 12px;
-              color: #999999;
-            }
-            .skill-list {
+          .job-item-footer {
+            .budget-container {
+              margin-top: 6px;
+              font-size: 14px;
+              font-weight: bold;
+              color: #00838f;
               display: flex;
-              margin: 0;
-              .skill-item {
-                color: #777777;
-                font-weight: bold;
-                flex: 0 0 auto;
-                padding: 3px 5px;
-                background: #f9f9f9;
-                border-radius: 3px;
-                border: 1px solid #eeeeee;
-                margin: 0 2px;
-                font-family: sans-serif;
+              .budget-label {
+                margin-left: 4px;
+              }
+            }
+            .skills-container {
+              display: flex;
+              align-items: center;
+              margin-top: 8px;
+              .skills-label {
+                margin-left: 5px;
                 font-size: 12px;
-                &:first-child {
-                  margin-right: 0;
-                }
-                &:last-child {
-                  margin-left: 0;
+                color: #999999;
+              }
+              .skill-list {
+                display: flex;
+                margin: 0;
+                .skill-item {
+                  color: #777777;
+                  font-weight: bold;
+                  flex: 0 0 auto;
+                  padding: 3px 5px;
+                  background: #f9f9f9;
+                  border-radius: 3px;
+                  border: 1px solid #eeeeee;
+                  margin: 0 2px;
+                  font-family: sans-serif;
+                  font-size: 12px;
+                  &:first-child {
+                    margin-right: 0;
+                  }
+                  &:last-child {
+                    margin-left: 0;
+                  }
                 }
               }
+            }
+          }
+        }
+      }
+      &.ended {
+        opacity: 0.75;
+        .job-item-content {
+          .job-item-title-container {
+            .job-item-date {
+              color: #ffffff;
+              background: #006064;
             }
           }
         }
