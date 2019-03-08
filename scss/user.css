@@ -486,12 +486,9 @@ textarea {
   padding: 0.2em 0;
 }
 
-.clickable {
-  cursor: pointer;
-}
-
 ::placeholder {
   font-family: "IRANSans";
+  direction: rtl;
 }
 
 body {
@@ -543,6 +540,22 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+button {
+  font-family: "IRANSans";
+}
+
+.ltr {
+  direction: ltr;
+}
+
+.rtl {
+  direction: rtl;
 }
 
 #slider {

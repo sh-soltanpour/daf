@@ -1,8 +1,14 @@
-@import 'common.scss';
+@import 'vars.scss';
+@import 'fonts.scss';
+
+////////// reset
+@import 'reset.scss';
 
 ::placeholder {
   font-family: 'IRANSans';
+  direction: rtl;
 }
+
 body {
   direction: rtl;
   text-align: right;
@@ -51,4 +57,17 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.clickable {
+  cursor: pointer;
+}
+button {
+  font-family: 'IRANSans';
+}
+.ltr {
+  direction: ltr;
+}
+.rtl {
+  direction: rtl;
 }
