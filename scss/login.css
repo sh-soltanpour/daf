@@ -562,6 +562,11 @@ body {
   overflow: hidden;
 }
 
+.footer-text {
+  z-index: 0;
+  color: white;
+}
+
 .register-page {
   width: 360px;
   padding: 8% 0 0;
