@@ -558,10 +558,6 @@ button {
   direction: rtl;
 }
 
-body {
-  overflow: hidden;
-}
-
 .footer-text {
   z-index: 0;
   color: white;
@@ -662,25 +658,25 @@ body {
 }
 
 .slide:nth-child(1) {
-  background-image: url(https://images.unsplash.com/photo-1461701204332-2aa3db5b20c8?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=crew-87250-unsplash.jpg);
+  background-image: url(/assets/images/slide1.jpg);
   background-size: cover;
   background-position: center center;
 }
 
 .slide:nth-child(2) {
-  background-image: url(https://images.unsplash.com/photo-1502911679107-2b54f5c0292c?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=fancycrave-342517-unsplash.jpg);
+  background-image: url(/assets/images/slide2.jpg);
   background-size: cover;
   background-position: center center;
 }
 
 .slide:nth-child(3) {
-  background-image: url(https://images.unsplash.com/photo-1443770760695-e1bfa3e62229?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=markus-spiske-37176-unsplash.jpg);
+  background-image: url(/assets/images/slide3.jpg);
   background-size: cover;
   background-position: center center;
 }
 
 .slide:nth-child(4) {
-  background-image: url(https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=william-iven-19843-unsplash.jpg);
+  background-image: url(/assets/images/slide4c.jpg);
   background-size: cover;
   background-position: center center;
 }
