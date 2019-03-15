@@ -1,13 +1,13 @@
+@import 'vars.scss';
 @import 'general.scss';
 
-
-.footer-text{
+.footer-text {
   z-index: 0;
   color: white;
 }
 
 .register-page {
-  width: 360px;
+  width: $register-form-width;
   padding: 8% 0 0;
   margin: auto;
 }
@@ -19,14 +19,15 @@
 .form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
-  max-width: 360px;
+  background: #ffffff;
+  max-width: $register-form-width;
   margin: 0 auto;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.form input {
+.form input,
+.form textarea {
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -43,9 +44,8 @@
   width: 100%;
   border: 0;
   padding: 15px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
-  transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
 }
@@ -61,10 +61,12 @@
 }
 #logo {
   max-width: 100%;
-  max-height: 100%;
+  height: 140px;
   > img {
     display: block;
     max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -74,7 +76,10 @@
   width: 100vw;
   margin: 0 auto;
   position: fixed;
-  top: 0;right: 0;left: 0;bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 
 .slide-wrapper {
@@ -82,12 +87,13 @@
   animation: slide 18s ease infinite;
 }
 
-
 .slide {
   float: left;
   height: 100vh;
   width: 100vw;
-  display: flex;align-items: center;justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slide:nth-child(1) {
@@ -121,8 +127,19 @@
 }
 
 @keyframes slide {
-  20% {transform: translateX(0px);}
-  30%,40% {transform: translateX(100vw);}
-  50%,60% {transform: translateX(200vw);}
-  70%,80% {transform: translateX(300vw);}
+  20% {
+    transform: translateX(0px);
+  }
+  30%,
+  40% {
+    transform: translateX(100vw);
+  }
+  50%,
+  60% {
+    transform: translateX(200vw);
+  }
+  70%,
+  80% {
+    transform: translateX(300vw);
+  }
 }

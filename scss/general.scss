@@ -39,6 +39,15 @@ header {
         height: 100%;
       }
     }
+    nav {
+      a {
+        color: #444444;
+        text-decoration: none;
+        &:hover {
+          color: #111111;
+        }
+      }
+    }
   }
 }
 
