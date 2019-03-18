@@ -3,39 +3,45 @@
   font-style: normal;
   font-weight: bold;
   src: url("/assets/fonts/iransans/eot/IRANSansWeb_Bold.eot");
-  src: url("/assets/fonts/iransans/eot/IRANSansWeb_Bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/iransans/woff2/IRANSansWeb_Bold.woff2") format("woff2"), url("/assets/fonts/iransans/woff/IRANSansWeb_Bold.woff") format("woff"), url("/assets/fonts/iransans/ttf/IRANSansWeb_Bold.ttf") format("truetype"); }
+  src: url("/assets/fonts/iransans/eot/IRANSansWeb_Bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/iransans/woff2/IRANSansWeb_Bold.woff2") format("woff2"), url("/assets/fonts/iransans/woff/IRANSansWeb_Bold.woff") format("woff"), url("/assets/fonts/iransans/ttf/IRANSansWeb_Bold.ttf") format("truetype");
+}
 @font-face {
   font-family: IRANSans;
   font-style: normal;
   font-weight: 500;
   src: url("/assets/fonts/iransans/eot/IRANSansWeb_Medium.eot");
-  src: url("/assets/fonts/iransans/eot/IRANSansWeb_Medium.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/iransans/woff2/IRANSansWeb_Medium.woff2") format("woff2"), url("/assets/fonts/iransans/woff/IRANSansWeb_Medium.woff") format("woff"), url("/assets/fonts/iransans/ttf/IRANSansWeb_Medium.ttf") format("truetype"); }
+  src: url("/assets/fonts/iransans/eot/IRANSansWeb_Medium.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/iransans/woff2/IRANSansWeb_Medium.woff2") format("woff2"), url("/assets/fonts/iransans/woff/IRANSansWeb_Medium.woff") format("woff"), url("/assets/fonts/iransans/ttf/IRANSansWeb_Medium.ttf") format("truetype");
+}
 @font-face {
   font-family: IRANSans;
   font-style: normal;
   font-weight: 300;
   src: url("/assets/fonts/iransans/eot/IRANSansWeb_Light.eot");
-  src: url("/assets/fonts/iransans/eot/IRANSansWeb_Light.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/iransans/woff2/IRANSansWeb_Light.woff2") format("woff2"), url("/assets/fonts/iransans/woff/IRANSansWeb_Light.woff") format("woff"), url("/assets/fonts/iransans/ttf/IRANSansWeb_Light.ttf") format("truetype"); }
+  src: url("/assets/fonts/iransans/eot/IRANSansWeb_Light.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/iransans/woff2/IRANSansWeb_Light.woff2") format("woff2"), url("/assets/fonts/iransans/woff/IRANSansWeb_Light.woff") format("woff"), url("/assets/fonts/iransans/ttf/IRANSansWeb_Light.ttf") format("truetype");
+}
 @font-face {
   font-family: IRANSans;
   font-style: normal;
   font-weight: 200;
   src: url("/assets/fonts/iransans/eot/IRANSansWeb_UltraLight.eot");
-  src: url("/assets/fonts/iransans/eot/IRANSansWeb_UltraLight.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/iransans/woff2/IRANSansWeb_UltraLight.woff2") format("woff2"), url("/assets/fonts/iransans/woff/IRANSansWeb_UltraLight.woff") format("woff"), url("/assets/fonts/iransans/ttf/IRANSansWeb_UltraLight.ttf") format("truetype"); }
+  src: url("/assets/fonts/iransans/eot/IRANSansWeb_UltraLight.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/iransans/woff2/IRANSansWeb_UltraLight.woff2") format("woff2"), url("/assets/fonts/iransans/woff/IRANSansWeb_UltraLight.woff") format("woff"), url("/assets/fonts/iransans/ttf/IRANSansWeb_UltraLight.ttf") format("truetype");
+}
 @font-face {
   font-family: IRANSans;
   font-style: normal;
   font-weight: normal;
   src: url("/assets/fonts/iransans/eot/IRANSansWeb.eot");
-  src: url("/assets/fonts/iransans/eot/IRANSansWeb.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/iransans/woff2/IRANSansWeb.woff2") format("woff2"), url("/assets/fonts/iransans/woff/IRANSansWeb.woff") format("woff"), url("/assets/fonts/iransans/ttf/IRANSansWeb.ttf") format("truetype"); }
-[class^='flaticon-']:before,
-[class*=' flaticon-']:before,
-[class^='flaticon-']:after,
-[class*=' flaticon-']:after {
+  src: url("/assets/fonts/iransans/eot/IRANSansWeb.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/iransans/woff2/IRANSansWeb.woff2") format("woff2"), url("/assets/fonts/iransans/woff/IRANSansWeb.woff") format("woff"), url("/assets/fonts/iransans/ttf/IRANSansWeb.ttf") format("truetype");
+}
+[class^=flaticon-]:before,
+[class*=" flaticon-"]:before,
+[class^=flaticon-]:after,
+[class*=" flaticon-"]:after {
   font-family: Flaticon;
   font-size: 16px;
   font-style: normal;
-  margin-left: 0; }
+  margin-left: 0;
+}
 
 html,
 body,
@@ -123,11 +129,13 @@ video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 /* make sure to set some focus styles for accessibility */
 :focus {
-  outline: 0; }
+  outline: 0;
+}
 
 /* HTML5 display-role reset for older browsers */
 article,
@@ -141,48 +149,57 @@ hgroup,
 menu,
 nav,
 section {
-  display: block; }
+  display: block;
+}
 
 body {
-  line-height: 1; }
+  line-height: 1;
+}
 
 ol,
 ul {
-  list-style: none; }
+  list-style: none;
+}
 
 blockquote,
 q {
-  quotes: none; }
+  quotes: none;
+}
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
-  content: none; }
+  content: "";
+  content: none;
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-decoration,
-input[type='search']::-webkit-search-results-button,
-input[type='search']::-webkit-search-results-decoration {
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
   -webkit-appearance: none;
-  -moz-appearance: none; }
+  -moz-appearance: none;
+}
 
-input[type='search'] {
+input[type=search] {
   -webkit-appearance: none;
   -moz-appearance: none;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
-  box-sizing: content-box; }
+  box-sizing: content-box;
+}
 
 textarea {
   overflow: auto;
   vertical-align: top;
-  resize: vertical; }
+  resize: vertical;
+}
 
 /**
  * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
@@ -193,7 +210,8 @@ video {
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  max-width: 100%; }
+  max-width: 100%;
+}
 
 /**
  * Prevent modern browsers from displaying `audio` without controls.
@@ -201,14 +219,16 @@ video {
  */
 audio:not([controls]) {
   display: none;
-  height: 0; }
+  height: 0;
+}
 
 /**
  * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
  * Known issue: no IE 6 support.
  */
 [hidden] {
-  display: none; }
+  display: none;
+}
 
 /**
  * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
@@ -222,20 +242,23 @@ html {
   -webkit-text-size-adjust: 100%;
   /* 2 */
   -ms-text-size-adjust: 100%;
-  /* 2 */ }
+  /* 2 */
+}
 
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
  */
 a:focus {
-  outline: thin dotted; }
+  outline: thin dotted;
+}
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
 a:active,
 a:hover {
-  outline: 0; }
+  outline: 0;
+}
 
 /**
  * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
@@ -245,19 +268,22 @@ img {
   border: 0;
   /* 1 */
   -ms-interpolation-mode: bicubic;
-  /* 2 */ }
+  /* 2 */
+}
 
 /**
  * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
  */
 figure {
-  margin: 0; }
+  margin: 0;
+}
 
 /**
  * Correct margin displayed oddly in IE 6/7.
  */
 form {
-  margin: 0; }
+  margin: 0;
+}
 
 /**
  * Define consistent border, margin, and padding.
@@ -265,7 +291,8 @@ form {
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em; }
+  padding: 0.35em 0.625em 0.75em;
+}
 
 /**
  * 1. Correct color not being inherited in IE 6/7/8/9.
@@ -279,7 +306,8 @@ legend {
   white-space: normal;
   /* 2 */
   *margin-left: -7px;
-  /* 3 */ }
+  /* 3 */
+}
 
 /**
  * 1. Correct font size not being inherited in all browsers.
@@ -298,7 +326,8 @@ textarea {
   vertical-align: baseline;
   /* 3 */
   *vertical-align: middle;
-  /* 3 */ }
+  /* 3 */
+}
 
 /**
  * Address Firefox 3+ setting `line-height` on `input` using `!important` in
@@ -306,7 +335,8 @@ textarea {
  */
 button,
 input {
-  line-height: normal; }
+  line-height: normal;
+}
 
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
@@ -316,7 +346,8 @@ input {
  */
 button,
 select {
-  text-transform: none; }
+  text-transform: none;
+}
 
 /**
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
@@ -328,22 +359,24 @@ select {
  *    Known issue: inner spacing remains in IE 6.
  */
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html input[type=button],
+input[type=reset],
+input[type=submit] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
   /* 3 */
   *overflow: visible;
-  /* 4 */ }
+  /* 4 */
+}
 
 /**
  * Re-set default cursor for disabled elements.
  */
 button[disabled],
 html input[disabled] {
-  cursor: default; }
+  cursor: default;
+}
 
 /**
  * 1. Address box sizing set to content-box in IE 8/9.
@@ -351,8 +384,8 @@ html input[disabled] {
  * 3. Remove excess padding in IE 7.
  *    Known issue: excess padding remains in IE 6.
  */
-input[type='checkbox'],
-input[type='radio'] {
+input[type=checkbox],
+input[type=radio] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -360,28 +393,31 @@ input[type='radio'] {
   *height: 13px;
   /* 3 */
   *width: 13px;
-  /* 3 */ }
+  /* 3 */
+}
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
  */
-input[type='search'] {
+input[type=search] {
   -webkit-appearance: textfield;
   /* 1 */
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   /* 2 */
-  box-sizing: content-box; }
+  box-sizing: content-box;
+}
 
 /**
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-decoration {
-  -webkit-appearance: none; }
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
 
 /**
  * Remove inner padding and border in Firefox 3+.
@@ -389,7 +425,8 @@ input[type='search']::-webkit-search-decoration {
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 /**
  * 1. Remove default vertical scrollbar in IE 6/7/8/9.
@@ -399,58 +436,89 @@ textarea {
   overflow: auto;
   /* 1 */
   vertical-align: top;
-  /* 2 */ }
+  /* 2 */
+}
 
 /**
  * Remove most spacing between table cells.
  */
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 html,
 button,
 input,
 select,
 textarea {
-  color: #222; }
+  color: #222;
+}
 
 ::-moz-selection {
   background: #b3d4fc;
-  text-shadow: none; }
+  text-shadow: none;
+}
 
 ::selection {
   background: #b3d4fc;
-  text-shadow: none; }
+  text-shadow: none;
+}
 
 img {
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 fieldset {
   border: 0;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 textarea {
-  resize: vertical; }
+  resize: vertical;
+}
 
 .chromeframe {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
-  padding: 0.2em 0; }
+  padding: 0.2em 0;
+}
 
-::placeholder {
-  font-family: 'IRANSans';
-  direction: rtl; }
+.rtl-placeholder::-webkit-input-placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.rtl-placeholder::-moz-placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.rtl-placeholder:-ms-input-placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.rtl-placeholder:-moz-placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.rtl-placeholder::placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}
 
 body {
   direction: rtl;
   text-align: right;
-  font-family: 'IRANSans';
+  font-family: "IRANSans";
   background: #f6f6f6;
   padding-top: 60px;
-  min-height: 100vh; }
+  min-height: 100vh;
+}
 
 header {
   background: #ffffff;
@@ -459,28 +527,35 @@ header {
   top: 0;
   right: 0;
   left: 0;
-  height: 60px; }
-  header #header {
-    padding: 0;
-    height: 100%; }
-    header #header #logo {
-      width: 190px;
-      height: 60px;
-      max-width: 100%;
-      max-height: 100%; }
-      header #header #logo > img {
-        display: block;
-        max-width: 100%;
-        height: 100%; }
-    header #header nav a {
-      color: #444444;
-      text-decoration: none; }
-      header #header nav a:hover {
-        color: #111111; }
+  height: 60px;
+}
+header #header {
+  padding: 0;
+  height: 100%;
+}
+header #header #logo {
+  width: 190px;
+  height: 60px;
+  max-width: 100%;
+  max-height: 100%;
+}
+header #header #logo > img {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+}
+header #header nav a {
+  color: #444444;
+  text-decoration: none;
+}
+header #header nav a:hover {
+  color: #111111;
+}
 
 main {
   min-height: calc(100vh - 125px);
-  padding-bottom: 1px; }
+  padding-bottom: 1px;
+}
 
 footer {
   background: #333333;
@@ -491,19 +566,24 @@ footer {
   height: 65px;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .clickable {
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 button {
-  font-family: 'IRANSans'; }
+  font-family: "IRANSans";
+}
 
 .ltr {
-  direction: ltr; }
+  direction: ltr;
+}
 
 .rtl {
-  direction: rtl; }
+  direction: rtl;
+}
 
 #slider {
   display: block;
@@ -511,45 +591,53 @@ button {
   padding: 40px 0 60px;
   background: #c8eef3;
   margin-bottom: -50px;
-  box-shadow: inset 0 -10px 10px -10px #add5d7; }
-  #slider .slider-container h1 {
-    font-size: 36px;
-    margin-bottom: 22px;
-    font-weight: bold;
-    color: #00838f; }
-  #slider .slider-container p {
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: justify;
-    text-indent: 35px; }
-  #slider .slider-container .main-search-box {
-    min-width: 400px;
-    width: 60%;
-    background: #e0f7fa;
-    box-shadow: 0 1px 6px rgba(0, 96, 100, 0.15);
-    margin-bottom: 10px;
-    border-bottom: 3px solid #00acc1;
-    display: flex;
-    margin: 25px auto 0;
-    font-size: 19px; }
-    #slider .slider-container .main-search-box > input {
-      flex: 1 0 auto;
-      background: transparent;
-      border: 0;
-      outline: 0;
-      padding: 2px 12px;
-      color: #006064; }
-      #slider .slider-container .main-search-box > input::placeholder {
-        color: rgba(0, 96, 100, 0.5); }
-    #slider .slider-container .main-search-box > button {
-      background: #00acc1;
-      border: none;
-      color: #ffffff;
-      padding: 5px 15px;
-      margin: 5px; }
+  box-shadow: inset 0 -10px 10px -10px #add5d7;
+}
+#slider .slider-container h1 {
+  font-size: 36px;
+  margin-bottom: 22px;
+  font-weight: bold;
+  color: #00838f;
+}
+#slider .slider-container p {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+  text-indent: 35px;
+}
+#slider .slider-container .main-search-box {
+  min-width: 400px;
+  width: 60%;
+  background: #e0f7fa;
+  box-shadow: 0 1px 6px rgba(0, 96, 100, 0.15);
+  margin-bottom: 10px;
+  border-bottom: 3px solid #00acc1;
+  display: flex;
+  margin: 25px auto 0;
+  font-size: 19px;
+}
+#slider .slider-container .main-search-box > input {
+  flex: 1 0 auto;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 2px 12px;
+  color: #006064;
+}
+#slider .slider-container .main-search-box > input::placeholder {
+  color: rgba(0, 96, 100, 0.5);
+}
+#slider .slider-container .main-search-box > button {
+  background: #00acc1;
+  border: none;
+  color: #ffffff;
+  padding: 5px 15px;
+  margin: 5px;
+}
 
 #wrapper {
-  display: flex; }
+  display: flex;
+}
 
 .search-box {
   width: 100%;
@@ -558,140 +646,171 @@ button {
   border-radius: 4px;
   margin-bottom: 10px;
   border: 4px solid #ffffff;
-  display: flex; }
-  .search-box .search-input {
-    flex: 1 0 auto;
-    background: transparent;
-    border: 0;
-    outline: 0;
-    padding: 6px 12px; }
+  display: flex;
+}
+.search-box .search-input {
+  flex: 1 0 auto;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 6px 12px;
+}
 
 aside {
   flex: 0 0 240px;
   padding: 25px;
   padding-right: 0;
-  padding-left: 0; }
-  aside #user-list-wrapper {
-    border-radius: 4px; }
-    aside #user-list-wrapper .user-list .user-item-container .user-item {
-      display: flex;
-      align-items: center;
-      background: #ffffff;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
-      padding: 8px 10px;
-      margin-bottom: 4px;
-      transition: all 0.3s ease;
-      cursor: pointer; }
-      aside #user-list-wrapper .user-list .user-item-container .user-item:hover {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
-      aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-avatar {
-        flex: 0 0 50px;
-        height: 50px;
-        width: 50px;
-        background: #cccccc;
-        border-radius: 5px;
-        margin-left: 12px; }
-      aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-content {
-        flex: 1 0 auto; }
-        aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-content .user-item-title {
-          margin-bottom: 7px;
-          font-size: 14px; }
-        aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-content .user-item-desc {
-          font-size: 12px;
-          color: #888888; }
+  padding-left: 0;
+}
+aside #user-list-wrapper {
+  border-radius: 4px;
+}
+aside #user-list-wrapper .user-list .user-item-container .user-item {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+aside #user-list-wrapper .user-list .user-item-container .user-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-avatar {
+  flex: 0 0 50px;
+  height: 50px;
+  width: 50px;
+  background: #cccccc;
+  border-radius: 5px;
+  margin-left: 12px;
+}
+aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-content {
+  flex: 1 0 auto;
+}
+aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-content .user-item-title {
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+aside #user-list-wrapper .user-list .user-item-container .user-item .user-item-content .user-item-desc {
+  font-size: 12px;
+  color: #888888;
+}
 
 #job-list-wrapper {
   flex: 1 0 0;
-  min-width: 0; }
-  #job-list-wrapper .job-list {
-    padding: 25px;
-    padding-left: 0; }
-    #job-list-wrapper .job-list .job-item-container .job-item {
-      display: flex;
-      padding: 20px;
-      background: #ffffff;
-      margin: 0 0 15px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-      border-radius: 3px;
-      transition: all 0.3s ease;
-      cursor: pointer; }
-      #job-list-wrapper .job-list .job-item-container .job-item:hover {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
-      #job-list-wrapper .job-list .job-item-container .job-item .job-item-avatar {
-        flex: 0 0 128px;
-        height: 128px;
-        width: 128px;
-        background: #fafafa;
-        border: 1px solid #eeeeee;
-        margin-left: 20px;
-        border-radius: 4px; }
-      #job-list-wrapper .job-list .job-item-container .job-item .job-item-content {
-        min-width: 0;
-        flex: 1 0 0;
-        padding: 5px 0; }
-        #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container {
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between; }
-          #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container .job-item-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px; }
-          #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container .job-item-date {
-            display: flex;
-            font-size: 12px;
-            background: #f5f5f5;
-            padding: 3px 6px;
-            border-radius: 3px;
-            color: #555555; }
-            #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container .job-item-date .job-item-date-label {
-              margin-left: 5px; }
-        #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-desc {
-          font-size: 14px;
-          line-height: 1.5;
-          height: 42px;
-          margin-bottom: 0;
-          overflow: hidden;
-          color: #444444; }
-        #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .budget-container {
-          margin-top: 6px;
-          font-size: 14px;
-          font-weight: bold;
-          color: #00838f;
-          display: flex; }
-          #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .budget-container .budget-label {
-            margin-left: 4px; }
-        #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container {
-          display: flex;
-          align-items: center;
-          margin-top: 8px; }
-          #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skills-label {
-            margin-left: 5px;
-            font-size: 12px;
-            color: #999999; }
-          #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list {
-            display: flex;
-            margin: 0; }
-            #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list .skill-item {
-              color: #777777;
-              font-weight: bold;
-              flex: 0 0 auto;
-              padding: 3px 5px;
-              background: #f9f9f9;
-              border-radius: 3px;
-              border: 1px solid #eeeeee;
-              margin: 0 2px;
-              font-family: sans-serif;
-              font-size: 12px; }
-              #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list .skill-item:first-child {
-                margin-right: 0; }
-              #job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list .skill-item:last-child {
-                margin-left: 0; }
-    #job-list-wrapper .job-list .job-item-container.ended {
-      opacity: 0.75; }
-      #job-list-wrapper .job-list .job-item-container.ended .job-item-content .job-item-title-container .job-item-date {
-        color: #ffffff;
-        background: #006064; }
+  min-width: 0;
+}
+#job-list-wrapper .job-list {
+  padding: 25px;
+  padding-left: 0;
+}
+#job-list-wrapper .job-list .job-item-container .job-item {
+  display: flex;
+  padding: 20px;
+  background: #ffffff;
+  margin: 0 0 15px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+#job-list-wrapper .job-list .job-item-container .job-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-avatar {
+  flex: 0 0 128px;
+  height: 128px;
+  width: 128px;
+  background: #fafafa;
+  border: 1px solid #eeeeee;
+  margin-left: 20px;
+  border-radius: 4px;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content {
+  min-width: 0;
+  flex: 1 0 0;
+  padding: 5px 0;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container .job-item-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container .job-item-date {
+  display: flex;
+  font-size: 12px;
+  background: #f5f5f5;
+  padding: 3px 6px;
+  border-radius: 3px;
+  color: #555555;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-title-container .job-item-date .job-item-date-label {
+  margin-left: 5px;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  height: 42px;
+  margin-bottom: 0;
+  overflow: hidden;
+  color: #444444;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .budget-container {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #00838f;
+  display: flex;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .budget-container .budget-label {
+  margin-left: 4px;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skills-label {
+  margin-left: 5px;
+  font-size: 12px;
+  color: #999999;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list {
+  display: flex;
+  margin: 0;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list .skill-item {
+  color: #777777;
+  font-weight: bold;
+  flex: 0 0 auto;
+  padding: 3px 5px;
+  background: #f9f9f9;
+  border-radius: 3px;
+  border: 1px solid #eeeeee;
+  margin: 0 2px;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list .skill-item:first-child {
+  margin-right: 0;
+}
+#job-list-wrapper .job-list .job-item-container .job-item .job-item-content .job-item-footer .skills-container .skill-list .skill-item:last-child {
+  margin-left: 0;
+}
+#job-list-wrapper .job-list .job-item-container.ended {
+  opacity: 0.75;
+}
+#job-list-wrapper .job-list .job-item-container.ended .job-item-content .job-item-title-container .job-item-date {
+  color: #ffffff;
+  background: #006064;
+}
 
 /*# sourceMappingURL=style.css.map */
