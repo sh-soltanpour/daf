@@ -1,41 +1,34 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import Users from './users/Users';
+import ProjectComponent from './components/project/ProjectComponent';
 
 class App extends Component<Props, State> {
-  changeTitle: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void = event => {
-    this.setState({ title: 'new title' });
-  };
-
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      title: 'welkfj'
+    changeTitle: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void = event => {
+        this.setState({title: 'new title'});
     };
-  }
 
-  render() {
-    return (
-      <div>
-        <p>{this.state.title}</p>
-        <button onClick={this.changeTitle}>click</button>
 
-        <section>
-          <Users yourName={this.testFunc} />
-        </section>
-      </div>
-    );
-  }
+    constructor(props: Props) {
+        super(props);
 
-  testFunc = () => {
-    this.setState({});
-  };
+        this.state = {
+            title: 'welkfj'
+        };
+    }
+
+    render() {
+        return (
+            <ProjectComponent/>
+        );
+    }
+
 }
 
 export default App;
 
-interface Props {}
+interface Props {
+}
+
 interface State {
-  title: string;
+    title: string;
 }
