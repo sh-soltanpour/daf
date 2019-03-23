@@ -4,6 +4,7 @@ import ProjectSkill from '../../models/ProjectSkill';
 import SkillList from '../SkillList/SkillList';
 import Network from '../../network/Network';
 import Project from '../../models/Project';
+import {RouteComponentProps} from 'react-router';
 
 export default class ProjectComponent extends Component<Props, State> {
     constructor(props: Props){
@@ -12,7 +13,7 @@ export default class ProjectComponent extends Component<Props, State> {
     }
     componentWillMount(): void {
         Network
-            .getProject('a1f824a0-d650-483a-bbd1-91c4145e3f9a')
+            .getProject(this.props.match.params.projectId)
             .then(res => this.setState({...this.state, project: res.data}))
     }
 
@@ -71,8 +72,11 @@ export default class ProjectComponent extends Component<Props, State> {
     }
 }
 
-interface Props {
+interface MatchParams {
+    projectId: string;
+}
 
+interface Props extends RouteComponentProps<MatchParams> {
 }
 
 interface State {

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import ProjectComponent from './components/project/ProjectComponent';
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+
 
 class App extends Component<Props, State> {
     changeTitle: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void = event => {
@@ -18,7 +20,9 @@ class App extends Component<Props, State> {
 
     render() {
         return (
-            <ProjectComponent/>
+            <Router>
+                <Route path="/projects/:projectId" component={ProjectComponent}/>
+            </Router>
         );
     }
 
