@@ -7,5 +7,6 @@ export default class Project {
     imageUrl: string = '';
     budget: number = 0;
     description: string = ""
+    deadline: number = 0
 
 }
