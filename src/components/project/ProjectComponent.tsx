@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { RouteComponentProps } from 'react-router';
+import React, {Component} from 'react';
+import {RouteComponentProps} from 'react-router';
 import '../../html-css/scss/project.scss';
 import Project from '../../models/Project';
 import Network from '../../network/Network';
@@ -9,27 +9,37 @@ import SkillList from '../SkillList/SkillList';
 export default class ProjectComponent extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { project: new Project(), now: new Date() };
+    this.state = {project: new Project(), now: new Date(), bidRequested: false};
   }
+
   private deadlineRefresh: NodeJS.Timeout = setInterval(() => {
-    this.setState({ ...this.state, now: new Date() });
+    this.setState({...this.state, now: new Date()});
   }, 1000);
 
+
   componentWillMount(): void {
+    let projectId: string = this.props.match.params.projectId;
     Network.getProject(this.props.match.params.projectId).then(res => {
-      res.data.deadline = 1555718400000;
-      this.setState({ ...this.state, project: res.data });
+      this.setState({...this.state, project: res.data});
     });
+    Network.bidRequested(projectId).then(res => {
+      this.setState({...this.state, bidRequested: res.data.bidRequested})
+    })
   }
+
+  private projectExpired(): boolean {
+    return this.state.project.deadline < this.state.now.getTime()
+  }
+
   componentWillUnmount(): void {
     clearInterval(this.deadlineRefresh);
   }
 
   projectDeadline(): JSX.Element {
-    if (this.state.project.deadline > this.state.now.getTime()) {
+    if (!this.projectExpired()) {
       return (
         <li className="project-deadline">
-          <i className="flaticon-deadline" />
+          <i className="flaticon-deadline"/>
           <span className="ml-2 font-weight-bold">زمان باقی‌مانده:</span>
           <span>{DateUtil.dateDifference(this.state.now, new Date(this.state.project.deadline)).toPersianString()}</span>
         </li>
@@ -37,10 +47,41 @@ export default class ProjectComponent extends Component<Props, State> {
     } else {
       return (
         <li className="project-deadline ended">
-          <i className="flaticon-deadline" />
+          <i className="flaticon-deadline"/>
           <span className="font-weight-bold">مهلت تمام شده</span>
         </li>
       );
+    }
+  }
+
+  projectForm(): JSX.Element {
+    if (this.projectExpired()) {
+      return (
+        <div className="deadline-reached">
+          <i className="flaticon-danger ml-2"></i>
+          <span>مهلت ارسال پیشنهاد برای این پروژه به پایان رسیده است!</span>
+        </div>
+      )
+    } else if (this.state.bidRequested) {
+      return (
+        <div className="already-bid">
+          <i className="flaticon-check-mark ml-2"></i>
+          <span>شما قبلا پیشنهاد خود را ثبت کرده‌اید</span>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h4>ثبت پیشنهاد</h4>
+          <form className="bid-form">
+            <div className="input-wrapper">
+              <input type="number" placeholder="پیشنهاد خود را وارد کنید"/>
+              <span className="bid-label">تومان</span>
+            </div>
+            <button type="submit">ارسال</button>
+          </form>
+        </div>
+      )
     }
   }
 
@@ -48,25 +89,25 @@ export default class ProjectComponent extends Component<Props, State> {
     return (
       <div>
         <section id="slider">
-          <div className="slider-container container" />
+          <div className="slider-container container"/>
         </section>
         <div id="wrapper" className="container">
           <div className="project-container">
             <div className="d-flex">
               <div className="project-avatar">
-                <img src={this.state.project.imageUrl} alt="" />
+                <img src={this.state.project.imageUrl} alt=""/>
               </div>
               <div className="project-content">
                 <h3 className="project-name">{this.state.project.title}</h3>
                 <ul className="project-info">
                   {this.projectDeadline()}
                   <li className="project-budget">
-                    <i className="flaticon-money-bag-1" />
+                    <i className="flaticon-money-bag-1"/>
                     <span className="ml-2">بودجه:</span>
                     <span>{this.state.project.budget} تومان</span>
                   </li>
                   <li className="won-user">
-                    <i className="flaticon-check-mark" />
+                    <i className="flaticon-check-mark"/>
                     <span className="ml-2">برنده:</span>
                     <span>وحید محمدی</span>
                   </li>
@@ -79,13 +120,10 @@ export default class ProjectComponent extends Component<Props, State> {
             </div>
             <div className="project-skills">
               <h4>مهارت‌های لازم:</h4>
-              <SkillList skills={this.state.project.skills} />
+              <SkillList skills={this.state.project.skills}/>
             </div>
             <div className="project-form">
-              <div className="deadline-reached">
-                <i className="flaticon-danger ml-2" />
-                <span>مهلت ارسال پیشنهاد برای این پروژه به پایان رسیده است!</span>
-              </div>
+              {this.projectForm()}
             </div>
           </div>
         </div>
@@ -98,9 +136,12 @@ interface MatchParams {
   projectId: string;
 }
 
-interface Props extends RouteComponentProps<MatchParams> {}
+interface Props extends RouteComponentProps
+  <MatchParams> {
+}
 
 interface State {
   project: Project;
   now: Date;
+  bidRequested: boolean;
 }

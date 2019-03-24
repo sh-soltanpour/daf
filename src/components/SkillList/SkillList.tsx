@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ProjectSkill from 'src/models/ProjectSkill';
 import SkillItem from '../SkillItem/SkillItem';
+import ProjectSkill from '../../models/ProjectSkill';
 
 export default class SkillList extends Component<Props, {}> {
   // <ul className="skills-list">

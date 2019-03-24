@@ -1,4 +1,4 @@
-import ProjectSkill from 'src/models/ProjectSkill';
+import ProjectSkill from './ProjectSkill';
 
 export default class Project {
   id: string = '';
