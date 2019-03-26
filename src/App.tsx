@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import ProjectComponent from './components/project/ProjectComponent';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 class App extends Component<Props, State> {
   constructor(props: Props) {
@@ -10,15 +12,23 @@ class App extends Component<Props, State> {
 
   render() {
     return (
-      <Router>
-        <Route path="/projects/:projectId" component={ProjectComponent} />
-      </Router>
+      <div>
+        <Header/>
+        <Router>
+          <div>
+            <Route path="/projects/:projectId" component={ProjectComponent}/>
+          </div>
+        </Router>
+        <Footer/>
+      </div>
     );
   }
 }
 
 export default App;
 
-interface Props {}
+interface Props {
+}
 
-interface State {}
+interface State {
+}
