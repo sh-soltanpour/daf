@@ -4,18 +4,31 @@ import BidRequestedResponse from '../models/BidRequestedResponse';
 
 
 export default class Network {
-  public static getProjects(): AxiosPromise<Project[]> {
-    return axios
-      .get<Project[]>("http://142.93.134.194:8000/joboonja/projects")
-  }
+  private static axiosInstance = axios.create({
+    baseURL: "http://localhost:8081/"
+  });
 
   public static getProject(projectId: string): AxiosPromise<Project> {
-    return axios
-      .get<Project>(`http://localhost:8081/projects/${projectId}`)
+    return this.axiosInstance
+      .get<Project>(`/projects/${projectId}`)
   }
 
   public static bidRequested(projectId: string): AxiosPromise<BidRequestedResponse> {
-    return axios
-      .get<BidRequestedResponse>(`http://localhost:8081/projects/bids?projectId=${projectId}`)
+    return this.axiosInstance
+      .get<BidRequestedResponse>(`/projects/bids?projectId=${projectId}`)
+  }
+
+  public static bidRequest(projectId: string, bidAmount: number): AxiosPromise<Project> {
+    let data = {
+      "biddingUser": {
+        "id": "1"
+      },
+      "project": {
+        "id": projectId
+      },
+      "bidAmount": bidAmount
+    };
+    return this.axiosInstance
+      .post<Project>('/projects/bids', data)
   }
 }

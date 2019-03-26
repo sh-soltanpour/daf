@@ -9,7 +9,7 @@ import SkillList from '../SkillList/SkillList';
 export default class ProjectComponent extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = {project: new Project(), now: new Date(), bidRequested: false};
+    this.state = {project: new Project(), now: new Date(), bidRequested: false, bidAmount: 0};
   }
 
   private deadlineRefresh: NodeJS.Timeout = setInterval(() => {
@@ -20,6 +20,7 @@ export default class ProjectComponent extends Component<Props, State> {
   componentWillMount(): void {
     let projectId: string = this.props.match.params.projectId;
     Network.getProject(this.props.match.params.projectId).then(res => {
+      res.data.deadline += 9000000000;
       this.setState({...this.state, project: res.data});
     });
     Network.bidRequested(projectId).then(res => {
@@ -54,6 +55,19 @@ export default class ProjectComponent extends Component<Props, State> {
     }
   }
 
+  private changeBidAmount = (event: React.FormEvent<HTMLInputElement>) => {
+    let newBidAmount = parseInt(event.currentTarget.value);
+    this.setState({...this.state, bidAmount: newBidAmount})
+  };
+  private sendBidRequest = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    Network.bidRequest(
+      this.state.project.id,
+      this.state.bidAmount
+    ).then(res => this.setState({...this.state, project: res.data}))
+  }
+
+
   projectForm(): JSX.Element {
     if (this.projectExpired()) {
       return (
@@ -73,9 +87,10 @@ export default class ProjectComponent extends Component<Props, State> {
       return (
         <div>
           <h4>ثبت پیشنهاد</h4>
-          <form className="bid-form">
+          <form onSubmit={this.sendBidRequest} className="bid-form">
             <div className="input-wrapper">
-              <input type="number" placeholder="پیشنهاد خود را وارد کنید"/>
+              <input value={this.state.bidAmount} type="number" onChange={this.changeBidAmount}
+                     placeholder="پیشنهاد خود را وارد کنید"/>
               <span className="bid-label">تومان</span>
             </div>
             <button type="submit">ارسال</button>
@@ -144,4 +159,5 @@ interface State {
   project: Project;
   now: Date;
   bidRequested: boolean;
+  bidAmount: number;
 }
