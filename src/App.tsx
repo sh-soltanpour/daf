@@ -4,6 +4,7 @@ import './App.css';
 import ProjectComponent from './components/project/ProjectComponent';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import UserComponent from './components/user/UserComponent';
 
 class App extends Component<Props, State> {
   constructor(props: Props) {
@@ -17,6 +18,7 @@ class App extends Component<Props, State> {
         <Router>
           <div>
             <Route path="/projects/:projectId" component={ProjectComponent}/>
+            <Route path="/users/:userId" render={(props) => <UserComponent currentUserId={'1'} {...props}/>}/>
           </div>
         </Router>
         <Footer/>

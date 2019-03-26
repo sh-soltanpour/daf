@@ -1,6 +1,7 @@
 import axios, {AxiosPromise} from 'axios';
 import Project from '../models/Project';
 import BidRequestedResponse from '../models/BidRequestedResponse';
+import User from '../models/User';
 
 
 export default class Network {
@@ -30,5 +31,9 @@ export default class Network {
     };
     return this.axiosInstance
       .post<Project>('/projects/bids', data)
+  }
+
+  public static getUser(userId: string): AxiosPromise<User> {
+    return this.axiosInstance.get<User>(`/users/${userId}`)
   }
 }

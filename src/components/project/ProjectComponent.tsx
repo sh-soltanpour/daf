@@ -5,7 +5,7 @@ import Project from '../../models/Project';
 import Network from '../../network/Network';
 import DateUtil from '../../utils/DateUtil';
 import SkillList from '../SkillList/SkillList';
-
+//TODO: 1-winner?, 2-form validation, 3-persian numbers,
 export default class ProjectComponent extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
