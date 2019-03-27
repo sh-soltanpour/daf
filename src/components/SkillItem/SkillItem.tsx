@@ -3,8 +3,7 @@ import SkillType from '../../enums/SkillType';
 
 export default class SkillItem extends Component<Props, State> {
 
-
-  endorsedClass(): string{
+  endorsedClass(): string {
     return (
       this.props.type === SkillType.endorsed ? 'endorsed' : ''
     )
@@ -12,7 +11,7 @@ export default class SkillItem extends Component<Props, State> {
 
   render(): JSX.Element {
     return (
-      <div className={"skill-item " + this.endorsedClass()}>
+      <div onClick={() => this.props.onClick(this.props.name)} className={"skill-item " + this.endorsedClass()}>
         <span className="skill-name">{this.props.name}</span>
         <span className="skill-rating">
                     <span>{this.props.point}</span>
@@ -29,7 +28,8 @@ export default class SkillItem extends Component<Props, State> {
 interface Props {
   name: string,
   point: number;
-  type: SkillType
+  type: SkillType,
+  onClick: (skillName: string) => void
 }
 
 interface State {

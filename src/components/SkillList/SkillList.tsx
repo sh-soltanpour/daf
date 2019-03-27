@@ -5,7 +5,9 @@ import SkillType from '../../enums/SkillType';
 
 export default class SkillList extends Component<Props, {}> {
   static defaultProps = {
-    type: SkillType.endorsed
+    type: SkillType.endorsed,
+    onDelete: (skillName: string)=>{},
+    onEndorse: (skillName: string)=>{}
   };
 
   private getSkillType(skill: ProjectSkill): SkillType {
@@ -14,13 +16,28 @@ export default class SkillList extends Component<Props, {}> {
     return skill.endorsed ? SkillType.endorsed : SkillType.endorsable;
   }
 
+  private getOnClick(skill: ProjectSkill): (skillName: string) => void {
+    switch (this.props.type) {
+      case SkillType.deletable :
+        return (this.props.onDelete);
+      case SkillType.endorsable:
+        return (this.props.onEndorse);
+      default:
+        return (skillName: string) => {
+        }
+    }
+  }
+
   render(): JSX.Element {
     return (
       <ul className="skills-list">
         {this.props.skills.map(skill => (
           <li key={skill.name}>
             <SkillItem name={skill.name} point={skill.point}
-                       type={this.getSkillType(skill)}/>
+                       type={this.getSkillType(skill)}
+                       onClick={this.getOnClick(skill)}
+            />
+
           </li>
         ))}
       </ul>
@@ -30,5 +47,7 @@ export default class SkillList extends Component<Props, {}> {
 
 interface Props {
   skills: ProjectSkill[];
-  type: SkillType
+  type: SkillType;
+  onEndorse: (skillName: string) => void
+  onDelete: (skillName: string) => void
 }

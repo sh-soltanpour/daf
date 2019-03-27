@@ -6,22 +6,59 @@ import '../../html-css/scss/user-main.scss';
 import '../../html-css/scss/user.scss';
 import SkillList from '../SkillList/SkillList';
 import SkillType from '../../enums/SkillType';
+import ProjectSkill from '../../models/ProjectSkill';
+import SkillSelector from '../skillSelector/SkillSelector';
 
 export default class UserComponent extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = {user: new User()}
+    this.state = {user: new User(), allSkills: []}
   }
 
   componentWillMount(): void {
     Network.getUser(this.props.match.params.userId)
       .then(res => {
         this.setState({...this.state, user: res.data})
+      });
+    if (this.isCurrentUser()) {
+      Network.getAllSkills()
+        .then(res => this.setState({...this.state, allSkills: res.data}))
+    }
+  }
+
+  private isCurrentUser(): boolean {
+    return this.props.match.params.userId === this.props.currentUserId
+  }
+
+  private deleteSkill = (skillName: string) => {
+    Network
+      .deleteSkill(skillName)
+      .then(res => {
+        this.updateUserSkills(res.data)
       })
   }
-  private isCurrentUser(): boolean {
-    return this.state.user.id === this.props.currentUserId
-  }
+
+  private endorseSkill = (skillName: string) => {
+    Network
+      .endroseSkill(skillName, this.state.user.id)
+      .then(res => {
+        this.updateUserSkills(res.data);
+      })
+  };
+  private updateUserSkills = (newSkills: ProjectSkill[]) => {
+    let user = {...this.state.user};
+    user.skills = newSkills;
+    this.setState({...this.state, user})
+  };
+  private getOtherSkills = (): ProjectSkill[] => {
+    return this.state.allSkills.filter(skill =>
+      this.state.user.skills.filter(userSkill => userSkill.name === skill.name).length === 0
+    )
+  };
+
+  private addSkill = (skillName: string) => {
+    Network.addSkill(skillName).then(res => this.updateUserSkills(res.data))
+  };
 
   render(): JSX.Element {
     return (
@@ -50,8 +87,12 @@ export default class UserComponent extends Component<Props, State> {
           </div>
 
           <div className="user-skills">
+            {this.isCurrentUser() &&
+            <SkillSelector onSubmit={this.addSkill} skills={this.getOtherSkills()}/>}
             <SkillList skills={this.state.user.skills}
                        type={this.isCurrentUser() ? SkillType.deletable : SkillType.endorsable}
+                       onDelete={this.deleteSkill}
+                       onEndorse={this.endorseSkill}
             />
           </div>
         </div>
@@ -70,5 +111,6 @@ interface Props extends RouteComponentProps
 }
 
 interface State {
-  user: User
+  user: User,
+  allSkills: ProjectSkill[]
 }
