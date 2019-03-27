@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {RouteComponentProps} from 'react-router';
+import React, { Component } from 'react';
+import { RouteComponentProps } from 'react-router';
 import Network from '../../network/Network';
 import User from '../../models/User';
 import '../../html-css/scss/user-main.scss';
 import '../../html-css/scss/user.scss';
-import SkillList from '../SkillList/SkillList';
+import SkillList from '../skillList/SkillList';
 import SkillType from '../../enums/SkillType';
 import ProjectSkill from '../../models/ProjectSkill';
 import SkillSelector from '../skillSelector/SkillSelector';
@@ -12,68 +12,58 @@ import SkillSelector from '../skillSelector/SkillSelector';
 export default class UserComponent extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = {user: new User(), allSkills: []}
+    this.state = { user: new User(), allSkills: [] };
   }
 
   componentWillMount(): void {
-    Network.getUser(this.props.match.params.userId)
-      .then(res => {
-        this.setState({...this.state, user: res.data})
-      });
+    Network.getUser(this.props.match.params.userId).then(res => {
+      this.setState({ ...this.state, user: res.data });
+    });
     if (this.isCurrentUser()) {
-      Network.getAllSkills()
-        .then(res => this.setState({...this.state, allSkills: res.data}))
+      Network.getAllSkills().then(res => this.setState({ ...this.state, allSkills: res.data }));
     }
   }
 
   private isCurrentUser(): boolean {
-    return this.props.match.params.userId === this.props.currentUserId
+    return this.props.match.params.userId === this.props.currentUserId;
   }
 
   private deleteSkill = (skillName: string) => {
-    Network
-      .deleteSkill(skillName)
-      .then(res => {
-        this.updateUserSkills(res.data)
-      })
-  }
+    Network.deleteSkill(skillName).then(res => {
+      this.updateUserSkills(res.data);
+    });
+  };
 
   private endorseSkill = (skillName: string) => {
-    Network
-      .endroseSkill(skillName, this.state.user.id)
-      .then(res => {
-        this.updateUserSkills(res.data);
-      })
+    Network.endroseSkill(skillName, this.state.user.id).then(res => {
+      this.updateUserSkills(res.data);
+    });
   };
   private updateUserSkills = (newSkills: ProjectSkill[]) => {
-    let user = {...this.state.user};
+    let user = { ...this.state.user };
     user.skills = newSkills;
-    this.setState({...this.state, user})
+    this.setState({ ...this.state, user });
   };
   private getOtherSkills = (): ProjectSkill[] => {
-    return this.state.allSkills.filter(skill =>
-      this.state.user.skills.filter(userSkill => userSkill.name === skill.name).length === 0
-    )
+    return this.state.allSkills.filter(skill => this.state.user.skills.filter(userSkill => userSkill.name === skill.name).length === 0);
   };
 
   private addSkill = (skillName: string) => {
-    Network.addSkill(skillName).then(res => this.updateUserSkills(res.data))
+    Network.addSkill(skillName).then(res => this.updateUserSkills(res.data));
   };
 
   render(): JSX.Element {
     return (
       <main>
         <section id="slider">
-          <div className="slider-container container">
-          </div>
+          <div className="slider-container container" />
         </section>
 
         <div id="wrapper" className="container">
-
           <div className="user-header-wrapper">
             <div className="user-header-container">
               <div className="user-avatar">
-                <img src={this.state.user.profilePictureUrl} alt=""/>
+                <img src={this.state.user.profilePictureUrl} alt="" />
               </div>
               <div className="user-content">
                 <h3 className="user-name">{this.state.user.firstName + ' ' + this.state.user.lastName}</h3>
@@ -87,30 +77,29 @@ export default class UserComponent extends Component<Props, State> {
           </div>
 
           <div className="user-skills">
-            {this.isCurrentUser() &&
-            <SkillSelector onSubmit={this.addSkill} skills={this.getOtherSkills()}/>}
-            <SkillList skills={this.state.user.skills}
-                       type={this.isCurrentUser() ? SkillType.deletable : SkillType.endorsable}
-                       onDelete={this.deleteSkill}
-                       onEndorse={this.endorseSkill}
+            {this.isCurrentUser() && <SkillSelector onSubmit={this.addSkill} skills={this.getOtherSkills()} />}
+            <SkillList
+              skills={this.state.user.skills}
+              type={this.isCurrentUser() ? SkillType.deletable : SkillType.endorsable}
+              onDelete={this.deleteSkill}
+              onEndorse={this.endorseSkill}
             />
           </div>
         </div>
       </main>
-    )
+    );
   }
 }
 
 interface MatchParams {
-  userId: string
+  userId: string;
 }
 
-interface Props extends RouteComponentProps
-  <MatchParams> {
-  currentUserId: string
+interface Props extends RouteComponentProps<MatchParams> {
+  currentUserId: string;
 }
 
 interface State {
-  user: User,
-  allSkills: ProjectSkill[]
+  user: User;
+  allSkills: ProjectSkill[];
 }

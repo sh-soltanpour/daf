@@ -1,64 +1,69 @@
-import axios, {AxiosPromise} from 'axios';
-import Project from '../models/Project';
+import axios, { AxiosPromise } from 'axios';
 import BidRequestedResponse from '../models/BidRequestedResponse';
-import User from '../models/User';
+import Project from '../models/Project';
 import ProjectSkill from '../models/ProjectSkill';
-
+import User from '../models/User';
+import ProjectListItem from '../models/ProjectListItem';
+import UserListItem from '../models/UserListItem';
 
 export default class Network {
+  static getAllUsers() {
+    return this.axiosInstance.get<UserListItem[]>('/users');
+  }
   private static axiosInstance = axios.create({
-    baseURL: "http://localhost:8081/"
+    baseURL: 'http://localhost:8081/'
   });
 
-  public static getProject(projectId: string): AxiosPromise<Project> {
-    return this.axiosInstance
-      .get<Project>(`/projects/${projectId}`)
+  static getAllProjects() {
+    return this.axiosInstance.get<ProjectListItem[]>('/projects');
   }
 
-  public static bidRequested(projectId: string): AxiosPromise<BidRequestedResponse> {
-    return this.axiosInstance
-      .get<BidRequestedResponse>(`/projects/bids?projectId=${projectId}`)
+  static getProject(projectId: string): AxiosPromise<Project> {
+    return this.axiosInstance.get<Project>(`/projects/${projectId}`);
   }
 
-  public static bidRequest(projectId: string, bidAmount: number): AxiosPromise<Project> {
+  static bidRequested(projectId: string): AxiosPromise<BidRequestedResponse> {
+    return this.axiosInstance.get<BidRequestedResponse>(`/projects/bids?projectId=${projectId}`);
+  }
+
+  static bidRequest(projectId: string, bidAmount: number): AxiosPromise<Project> {
     let data = {
-      "biddingUser": {
-        "id": "1"
+      biddingUser: {
+        id: '1'
       },
-      "project": {
-        "id": projectId
+      project: {
+        id: projectId
       },
-      "bidAmount": bidAmount
+      bidAmount: bidAmount
     };
-    return this.axiosInstance
-      .post<Project>('/projects/bids', data)
+    return this.axiosInstance.post<Project>('/projects/bids', data);
   }
 
-  public static getUser(userId: string): AxiosPromise<User> {
-    return this.axiosInstance.get<User>(`/users/${userId}`)
+  static getUser(userId: string): AxiosPromise<User> {
+    return this.axiosInstance.get<User>(`/users/${userId}`);
   }
 
-  public static deleteSkill(skillName: string): AxiosPromise<ProjectSkill[]> {
-    const data = {'name': skillName};
-    return this.axiosInstance.delete('/users/skills', {data: data});
+  static deleteSkill(skillName: string): AxiosPromise<ProjectSkill[]> {
+    const data = { name: skillName };
+    return this.axiosInstance.delete('/users/skills', { data: data });
   }
 
-  public static endroseSkill(skillName: string, endorsedUserId: string): AxiosPromise<ProjectSkill[]> {
+  static endroseSkill(skillName: string, endorsedUserId: string): AxiosPromise<ProjectSkill[]> {
     const data = {
-      "endorsedUser": {
-        "id": endorsedUserId
+      endorsedUser: {
+        id: endorsedUserId
       },
-      "skill": {
-        "name": skillName
+      skill: {
+        name: skillName
       }
     };
-    return this.axiosInstance.post<ProjectSkill[]>('/users/skills/endorses', data)
+    return this.axiosInstance.post<ProjectSkill[]>('/users/skills/endorses', data);
   }
-  public static getAllSkills(): AxiosPromise<ProjectSkill[]>{
-    return this.axiosInstance.get<ProjectSkill[]>('/skills')
+  static getAllSkills(): AxiosPromise<ProjectSkill[]> {
+    return this.axiosInstance.get<ProjectSkill[]>('/skills');
   }
-  public static addSkill(skillName: string): AxiosPromise<ProjectSkill[]>{
-    const data = {"name" : skillName};
+  static addSkill(skillName: string): AxiosPromise<ProjectSkill[]> {
+    const data = { name: skillName };
     return this.axiosInstance.post<ProjectSkill[]>('/users/skills', data);
   }
 }

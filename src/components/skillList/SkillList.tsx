@@ -1,30 +1,28 @@
-import React, {Component} from 'react';
-import SkillItem from '../SkillItem/SkillItem';
+import React, { Component } from 'react';
+import SkillItem from '../skillItem/SkillItem';
 import ProjectSkill from '../../models/ProjectSkill';
 import SkillType from '../../enums/SkillType';
 
 export default class SkillList extends Component<Props, {}> {
   static defaultProps = {
     type: SkillType.endorsed,
-    onDelete: (skillName: string)=>{},
-    onEndorse: (skillName: string)=>{}
+    onDelete: (skillName: string) => {},
+    onEndorse: (skillName: string) => {}
   };
 
   private getSkillType(skill: ProjectSkill): SkillType {
-    if (this.props.type === SkillType.deletable || this.props.type === SkillType.simple)
-      return this.props.type;
+    if (this.props.type === SkillType.deletable || this.props.type === SkillType.simple) return this.props.type;
     return skill.endorsed ? SkillType.endorsed : SkillType.endorsable;
   }
 
   private getOnClick(skill: ProjectSkill): (skillName: string) => void {
     switch (this.props.type) {
-      case SkillType.deletable :
-        return (this.props.onDelete);
+      case SkillType.deletable:
+        return this.props.onDelete;
       case SkillType.endorsable:
-        return (this.props.onEndorse);
+        return this.props.onEndorse;
       default:
-        return (skillName: string) => {
-        }
+        return (skillName: string) => {};
     }
   }
 
@@ -33,11 +31,7 @@ export default class SkillList extends Component<Props, {}> {
       <ul className="skills-list">
         {this.props.skills.map(skill => (
           <li key={skill.name}>
-            <SkillItem name={skill.name} point={skill.point}
-                       type={this.getSkillType(skill)}
-                       onClick={this.getOnClick(skill)}
-            />
-
+            <SkillItem name={skill.name} point={skill.point} type={this.getSkillType(skill)} onClick={this.getOnClick(skill)} />
           </li>
         ))}
       </ul>
@@ -48,6 +42,6 @@ export default class SkillList extends Component<Props, {}> {
 interface Props {
   skills: ProjectSkill[];
   type: SkillType;
-  onEndorse: (skillName: string) => void
-  onDelete: (skillName: string) => void
+  onEndorse: (skillName: string) => void;
+  onDelete: (skillName: string) => void;
 }
