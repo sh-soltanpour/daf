@@ -2,11 +2,30 @@ import React, { Component } from 'react';
 import UserListItem from '../../models/UserListItem';
 import Network from '../../network/Network';
 import SidebarUserItem from './SidebarUserItem';
+import { SearchUtil } from '../../utils/SearchUtil';
 
 export default class Sidebar extends Component<Props, State> {
+  searchSubmit(searchInput: string): void {
+    const { usersListCache } = this.state;
+    this.setState({ usersList: SearchUtil.searchStringInArray(usersListCache, searchInput, x => `${x.firstName} ${x.lastName}`) });
+  }
+  onChangeSearchInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const searchInput = event.target.value;
+    this.setState({ searchInput });
+    this.searchSubmit(searchInput);
+  };
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      usersList: [],
+      usersListCache: [],
+      searchInput: ''
+    };
+  }
   componentWillMount() {
     Network.getAllUsers().then(response => {
-      this.setState({ usersList: response.data });
+      this.setState({ usersListCache: response.data });
+      this.searchSubmit('');
     });
   }
   render() {
@@ -16,7 +35,7 @@ export default class Sidebar extends Component<Props, State> {
       <div>
         <aside>
           <div className="search-box">
-            <input className="search-input" type="text" placeholder="جستجو نام کاربر" />
+            <input className="search-input" type="text" placeholder="جستجو نام کاربر" onChange={this.onChangeSearchInput} />
           </div>
           <div id="user-list-wrapper">
             <ul className="user-list">{usersComponents}</ul>
@@ -30,4 +49,6 @@ export default class Sidebar extends Component<Props, State> {
 interface Props {}
 interface State {
   usersList: UserListItem[];
+  usersListCache: UserListItem[];
+  searchInput: string;
 }

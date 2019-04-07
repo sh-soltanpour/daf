@@ -15,15 +15,17 @@ class App extends Component<Props, State> {
   render() {
     return (
       <div>
-        <Header />
         <Router>
           <div>
-            <Route path="/projects/:projectId" component={ProjectComponent} />
-            <Route path="/users/:userId" render={props => <UserComponent currentUserId={'1'} {...props} />} />
-            <Route path="/" component={HomeComponent} />
+            <Header />
+            <div>
+              <Route path="/projects/:projectId" component={ProjectComponent} />
+              <Route path="/users/:userId" render={props => <UserComponent currentUserId={'1'} {...props} />} />
+              <Route path="/" component={HomeComponent} />
+            </div>
+            <Footer />
           </div>
         </Router>
-        <Footer />
       </div>
     );
   }

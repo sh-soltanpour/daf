@@ -1,5 +1,6 @@
 #wrapper {
   display: flex;
+  padding-top: 20px;
 }
 .search-box {
   width: 100%;
@@ -26,6 +27,10 @@ aside {
     border-radius: 4px;
     .user-list {
       .user-item-container {
+        > a {
+          color: inherit;
+          text-decoration: none;
+        }
         .user-item {
           display: flex;
           align-items: center;
@@ -67,9 +72,13 @@ aside {
   flex: 1 0 0;
   min-width: 0;
   .job-list {
-    padding: 25px;
+    padding: 0 25px 25px;
     padding-left: 0;
     .job-item-container {
+      > a {
+        text-decoration: none;
+        color: inherit;
+      }
       .job-item {
         display: flex;
         padding: 20px;

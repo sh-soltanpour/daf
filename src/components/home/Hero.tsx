@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 
-export default class Hero extends Component {
+export default class Hero extends Component<Props, State> {
+  submitSearchProjects = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    this.props.onSearch(this.state.inputText);
+  };
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      inputText: ''
+    };
+  }
+  onChangeInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    this.setState({ inputText: event.target.value });
+  };
   render() {
     return (
       <div>
@@ -11,13 +24,20 @@ export default class Hero extends Component {
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و
               مجله در
             </p>
-            <div className="main-search-box">
-              <input type="text" placeholder="جستجو در جاب‌اونجا" />
+            <form className="main-search-box" onSubmit={this.submitSearchProjects}>
+              <input type="text" placeholder="جستجو در جاب‌اونجا" onChange={this.onChangeInput} />
               <button type="submit">جستجو</button>
-            </div>
+            </form>
           </div>
         </section>
       </div>
     );
   }
+}
+
+interface Props {
+  onSearch: (searchInput: string) => void;
+}
+interface State {
+  inputText: string;
 }
