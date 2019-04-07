@@ -55,7 +55,9 @@ export default class ProjectListItemComponent extends Component<Props, State> {
                   <span className="skills-label">مهارت‌ها:</span>
                   <ul className="skill-list">
                     {skills.map(s => (
-                      <li className="skill-item">{s.name}</li>
+                      <li key={s.name} className="skill-item">
+                        {s.name}
+                      </li>
                     ))}
                   </ul>
                 </div>

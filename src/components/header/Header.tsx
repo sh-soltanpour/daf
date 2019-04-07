@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import logo from '../../html-css/assets/images/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export default class Header extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = { logoutRedirect: false };
+  }
   logout = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
-    localStorage.clear();
+    // localStorage.clear();
+    this.setState({ logoutRedirect: true });
   };
   render() {
+    if (this.state.logoutRedirect) return <Redirect to="/login" />;
     return (
       <header>
         <div className="container h-100">
@@ -16,12 +22,10 @@ export default class Header extends Component<Props, State> {
             </Link>
             <nav className="col-auto row align-items-center">
               <div id="profile" className="col-auto clickable">
-                <Link to={`users/1`}>حساب کاربری</Link>
+                <Link to="/profile">حساب کاربری</Link>
               </div>
               <div id="logout" className="col-auto clickable">
-                <Link to={`/`} onClick={this.logout}>
-                  خروج
-                </Link>
+                <span onClick={this.logout}>خروج</span>
               </div>
             </nav>
           </div>
@@ -31,4 +35,6 @@ export default class Header extends Component<Props, State> {
   }
 }
 interface Props {}
-interface State {}
+interface State {
+  logoutRedirect: boolean;
+}
