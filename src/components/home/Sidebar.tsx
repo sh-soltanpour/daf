@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import UserListItem from '../../models/UserListItem';
 import Network from '../../network/Network';
 import SidebarUserItem from './SidebarUserItem';
-import { SearchUtil } from '../../utils/SearchUtil';
+import { StringUtil } from '../../utils/StringUtil';
 
 export default class Sidebar extends Component<Props, State> {
   searchSubmit(searchInput: string): void {
     const { usersListCache } = this.state;
-    this.setState({ usersList: SearchUtil.searchStringInArray(usersListCache, searchInput, x => `${x.firstName} ${x.lastName}`) });
+    this.setState({ usersList: StringUtil.searchStringInArray(usersListCache, searchInput, x => `${x.firstName} ${x.lastName}`) });
   }
   onChangeSearchInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const searchInput = event.target.value;

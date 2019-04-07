@@ -5,12 +5,12 @@ import Hero from './Hero';
 import ProjectListItemComponent from './JobItem';
 import Sidebar from './Sidebar';
 import '../../html-css/scss/style.scss';
-import { SearchUtil } from '../../utils/SearchUtil';
+import { StringUtil } from '../../utils/StringUtil';
 
 export default class HomeComponent extends Component<Props, State> {
   onSearchProjects = (searchInput: string): void => {
     const { projectsListCache } = this.state;
-    this.setState({ projectsList: SearchUtil.searchStringInArray(projectsListCache, searchInput, x => x.title) });
+    this.setState({ projectsList: StringUtil.searchStringInArray(projectsListCache, searchInput, x => x.title) });
   };
   constructor(props: Props) {
     super(props);

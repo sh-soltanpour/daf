@@ -3,14 +3,20 @@ import { RouteComponentProps } from 'react-router';
 import '../../html-css/scss/project.scss';
 import Project from '../../models/Project';
 import Network from '../../network/Network';
-import DateUtil from '../../utils/DateUtil';
+import { DateUtil } from '../../utils/DateUtil';
 import SkillList from '../skillList/SkillList';
+import { StringUtil } from '../../utils/StringUtil';
 //TODO: 1-winner?, 2-form validation, 3-persian numbers,
 
 export default class ProjectComponent extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { project: new Project(), now: new Date(), bidRequested: false, bidAmount: 0 };
+    this.state = {
+      project: new Project(),
+      now: new Date(),
+      bidRequested: false,
+      bidAmount: 0
+    };
   }
 
   private deadlineRefresh = setInterval(() => {
@@ -95,6 +101,7 @@ export default class ProjectComponent extends Component<Props, State> {
   }
 
   render(): JSX.Element {
+    const { budget, title, imageUrl, description, skills, deadline } = this.state.project;
     return (
       <div>
         <section id="slider">
@@ -104,16 +111,16 @@ export default class ProjectComponent extends Component<Props, State> {
           <div className="project-container">
             <div className="d-flex">
               <div className="project-avatar">
-                <img src={this.state.project.imageUrl} alt="" />
+                <img src={imageUrl} alt="Project Image" />
               </div>
               <div className="project-content">
-                <h3 className="project-name">{this.state.project.title}</h3>
+                <h3 className="project-name">{title}</h3>
                 <ul className="project-info">
                   {this.projectDeadline()}
                   <li className="project-budget">
                     <i className="flaticon-money-bag-1" />
                     <span className="ml-2">بودجه:</span>
-                    <span>{this.state.project.budget} تومان</span>
+                    <span>{StringUtil.convertEngNumbersToPersian(budget.toString())} تومان</span>
                   </li>
                   <li className="won-user">
                     <i className="flaticon-check-mark" />
@@ -123,13 +130,13 @@ export default class ProjectComponent extends Component<Props, State> {
                 </ul>
                 <div className="project-description">
                   <h4>توضیحات</h4>
-                  <p>{this.state.project.description}</p>
+                  <p>{description}</p>
                 </div>
               </div>
             </div>
             <div className="project-skills">
               <h4>مهارت‌های لازم:</h4>
-              <SkillList skills={this.state.project.skills} />
+              <SkillList skills={skills} />
             </div>
             <div className="project-form">{this.projectForm()}</div>
           </div>
