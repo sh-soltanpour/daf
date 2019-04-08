@@ -1,3 +1,5 @@
+import {StringUtil} from './StringUtil';
+
 class DateUtilClass {
   dateDifference(start: Date, end: Date): DateDifference {
     let difference = end.getTime() - start.getTime();
@@ -28,7 +30,9 @@ class DateDifference {
   }
 
   public toPersianString(): string {
-    return `${this.day} روز و ${this.hour} ساعت و ${this.minute} دقیقه و ${this.second} ثانیه`;
+    return StringUtil.convertEngNumbersToPersian(
+      `${this.day} روز و ${this.hour} ساعت و ${this.minute} دقیقه و ${this.second} ثانیه`
+    );
   }
 }
 export const DateUtil = new DateUtilClass();

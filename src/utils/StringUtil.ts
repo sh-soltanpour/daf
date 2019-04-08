@@ -1,12 +1,12 @@
 class StringUtilClass {
-  convertEngNumbersToPersian(theText: string) {
+  convertEngNumbersToPersian(theText: string): string {
     const engNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     const perNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
     return this.stringReplaceBulk(theText, engNumbers, perNumbers);
   }
 
-  stringReplaceBulk(str: string, findArray: string[], replaceArray: any[] | string[]) {
-    if (!str) return;
+  stringReplaceBulk(str: string, findArray: string[], replaceArray: any[] | string[]): string {
+    if (!str) return '';
     let i: number;
     let regex: any[] = [];
     let map: { [key: string]: string } = {};
