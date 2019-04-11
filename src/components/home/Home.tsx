@@ -25,7 +25,9 @@ export default class HomeComponent extends Component<Props, State> {
   }
   render() {
     const { projectsList } = this.state;
-    const projectsComponents = projectsList.map(p => <ProjectListItemComponent key={p.id} project={p} />);
+    const projectsComponents = projectsList
+      .sort((a, b) => a.deadline - b.deadline)
+      .map(p => <ProjectListItemComponent key={p.id} project={p} />);
     return (
       <div>
         <Hero onSearch={this.onSearchProjects} />
