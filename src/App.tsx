@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { cssTransition, toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
@@ -8,7 +8,6 @@ import HomeComponent from './components/home/Home';
 import LoginComponent from './components/login/Login';
 import ProjectComponent from './components/project/ProjectComponent';
 import UserComponent from './components/user/UserComponent';
-import { toastDuration } from './utils/ToastUtil';
 
 class App extends Component<Props, State> {
   constructor(props: Props) {
