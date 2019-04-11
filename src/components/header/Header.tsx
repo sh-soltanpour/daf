@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../../html-css/assets/images/logo.png';
-import { Link, Redirect } from 'react-router-dom';
+import {Link, Redirect, RouteComponentProps} from 'react-router-dom';
 
 export default class Header extends Component<Props, State> {
   constructor(props: Props) {
@@ -12,6 +12,8 @@ export default class Header extends Component<Props, State> {
     this.setState({ logoutRedirect: true });
   };
   render() {
+    if(this.props.location.pathname === '/login' || this.props.location.pathname === '/register')
+      return null;
     if (this.state.logoutRedirect) return <Redirect to="/login" />;
     return (
       <header>
@@ -34,7 +36,7 @@ export default class Header extends Component<Props, State> {
     );
   }
 }
-interface Props {}
+interface Props extends RouteComponentProps{}
 interface State {
   logoutRedirect: boolean;
 }
