@@ -6,7 +6,6 @@ import Api from '../../api/Api';
 import { DateUtil } from '../../utils/DateUtil';
 import SkillList from '../skillList/SkillList';
 import { StringUtil } from '../../utils/StringUtil';
-//TODO: 1-winner?, 2-form validation, 3-persian numbers,
 
 export default class ProjectComponent extends Component<Props, State> {
   constructor(props: Props) {

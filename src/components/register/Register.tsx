@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../html-css/assets/images/logo.png';
+import logo from '../../assets/images/logo.png';
 import ToastUtil from '../../utils/ToastUtil';
 import LoginSlider from '../login/LoginSlider';
 
