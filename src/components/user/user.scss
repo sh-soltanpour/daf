@@ -32,6 +32,8 @@ $avatar-height: 200px;
       z-index: 10;
       max-width: 100%;
       border-radius: 15px;
+      width: 180px;
+      height: 180px;
     }
   }
   .user-content {
@@ -72,6 +74,7 @@ $avatar-height: 200px;
   .skills-list {
     display: flex;
     direction: ltr;
+    flex-wrap: wrap;
     .skill-item {
       display: flex;
       align-items: center;
