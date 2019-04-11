@@ -26,7 +26,6 @@ export default class UserComponent extends Component<Props, State> {
   }
 
   private isCurrentUser(): boolean {
-    console.log("felan", this.props.location);
     return this.props.location.pathname.includes('profile')
       || this.props.match.params.userId === this.props.currentUserId;
   }

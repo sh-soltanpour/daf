@@ -7,6 +7,8 @@ import Footer from './components/footer/Footer';
 import UserComponent from './components/user/UserComponent';
 import HomeComponent from './components/home/Home';
 import LoginComponent from './components/login/Login';
+import Register from './components/register/Register';
+import RegisterComponent from './components/register/Register';
 
 class App extends Component<Props, State> {
   constructor(props: Props) {
@@ -22,7 +24,8 @@ class App extends Component<Props, State> {
             <div>
               <Route path="/" component={Header}/>
               <main>
-                <Route path="/login" component={LoginComponent}/>
+                <Route exact path="/login" component={LoginComponent}/>
+                <Route exact path="/register" component={RegisterComponent}/>
                 <Route path="/projects/:projectId" component={ProjectComponent}/>
                 <Route path="/users/:userId" render={props => <UserComponent currentUserId="1" {...props} />}/>
                 <Route path="/profile" render={props => <UserComponent currentUserId="1" {...props} />}/>
