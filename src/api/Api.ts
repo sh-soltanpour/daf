@@ -1,26 +1,30 @@
 import axios, { AxiosPromise } from 'axios';
+import { toast, ToastId, cssTransition } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import BidRequestedResponse from '../models/BidRequestedResponse';
 import Project from '../models/Project';
+import ProjectListItem from '../models/ProjectListItem';
 import ProjectSkill from '../models/ProjectSkill';
 import User from '../models/User';
-import ProjectListItem from '../models/ProjectListItem';
 import UserListItem from '../models/UserListItem';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toastDuration } from '../utils/ToastUtil';
 
 class ApiClass {
   private axiosInstance = axios.create({
     baseURL: 'http://localhost:8081/'
   });
+  currentToastId: ToastId | undefined;
   constructor() {
+    toast.configure({ draggable: false, closeButton: false, hideProgressBar: true });
+
     this.axiosInstance.interceptors.response.use(
       response => {
         return response;
       },
       error => {
         if (error == 'Error: Network Error') {
-          toast('fuck');
-          // alert('Check your internet connection');
+          toast.error('از اتصال اینترنت خود مطمئن شوید');
+        } else if (error) {
         }
         // console.log(
         // 'TCL: NetworkClass -> constructor -> error',
@@ -29,10 +33,6 @@ class ApiClass {
         // error == 'Error: Network Error',
         // JSON.stringify(error)
         // );
-        // handle error
-        if (error.response) {
-          alert(error.response.data.message);
-        }
       }
     );
   }
