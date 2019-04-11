@@ -32,8 +32,8 @@ class App extends Component<Props, State> {
               <main>
                 <Route path="/projects/:projectId" component={ProjectComponent} />
                 <Route path="/users/:userId" render={props => <UserComponent currentUserId="1" {...props} />} />
-                {/* TODO: Should have Profile route */}
-                <Route path="/" component={HomeComponent} />
+                <Route path="/profile" render={props => <UserComponent currentUserId="1" {...props} />} />
+                <Route exact path="/" component={HomeComponent} />
               </main>
               <Footer />
             </div>
