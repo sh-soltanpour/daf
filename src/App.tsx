@@ -7,6 +7,7 @@ import Footer from './components/footer/Footer';
 import UserComponent from './components/user/UserComponent';
 import HomeComponent from './components/home/Home';
 import LoginComponent from './components/login/Login';
+import { ToastContainer } from 'react-toastify';
 
 class App extends Component<Props, State> {
   constructor(props: Props) {
@@ -22,6 +23,7 @@ class App extends Component<Props, State> {
     // const isLoggedIn = localStorage.getItem('token') === 'true';
     return (
       <div>
+        <ToastContainer />
         <Router>
           <div>
             {/* <Route path="/login" render={props => (!isLoggedIn ? <LoginComponent {...props} /> : <Redirect to={{ pathname: '/' }} />)} /> */}

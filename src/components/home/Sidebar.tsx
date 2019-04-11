@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserListItem from '../../models/UserListItem';
-import Network from '../../network/Network';
+import Api from '../../api/Api';
 import SidebarUserItem from './SidebarUserItem';
 import { StringUtil } from '../../utils/StringUtil';
 
@@ -23,8 +23,8 @@ export default class Sidebar extends Component<Props, State> {
     };
   }
   componentWillMount() {
-    Network.getAllUsers().then(response => {
-      this.setState({ usersListCache: response.data });
+    Api.getAllUsers().then(response => {
+      if (response) this.setState({ usersListCache: response.data });
       this.searchSubmit('');
     });
   }
@@ -32,16 +32,14 @@ export default class Sidebar extends Component<Props, State> {
     const { usersList } = this.state;
     const usersComponents = usersList.map(u => <SidebarUserItem key={u.id} user={u} />);
     return (
-      <div>
-        <aside>
-          <div className="search-box">
-            <input className="search-input" type="text" placeholder="جستجو نام کاربر" onChange={this.onChangeSearchInput} />
-          </div>
-          <div id="user-list-wrapper">
-            <ul className="user-list">{usersComponents}</ul>
-          </div>
-        </aside>
-      </div>
+      <aside>
+        <div className="search-box">
+          <input className="search-input" type="text" placeholder="جستجو نام کاربر" onChange={this.onChangeSearchInput} />
+        </div>
+        <div id="user-list-wrapper">
+          <ul className="user-list">{usersComponents}</ul>
+        </div>
+      </aside>
     );
   }
 }

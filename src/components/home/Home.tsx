@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ProjectListItem from '../../models/ProjectListItem';
-import Network from '../../network/Network';
+import Api from '../../api/Api';
 import Hero from './Hero';
 import ProjectListItemComponent from './JobItem';
 import Sidebar from './Sidebar';
@@ -17,7 +17,8 @@ export default class HomeComponent extends Component<Props, State> {
     this.state = { projectsList: [], projectsListCache: [] };
   }
   componentWillMount() {
-    Network.getAllProjects().then(response => {
+    Api.getAllProjects().then(response => {
+      if (!response) return;
       this.setState({ projectsListCache: response.data });
       this.onSearchProjects('');
     });
@@ -28,12 +29,18 @@ export default class HomeComponent extends Component<Props, State> {
     return (
       <div>
         <Hero onSearch={this.onSearchProjects} />
-        <div id="wrapper" className="container">
-          <Sidebar />
+        <div id="wrapper">
+          <div className="container">
+            <div className="home-wrapper">
+              <Sidebar />
 
-          <section id="job-list-wrapper">
-            <ul className="job-list">{projectsComponents}</ul>
-          </section>
+              <section id="job-list-wrapper">
+                <ul className="job-list">
+                  {projectsComponents.length > 0 ? projectsComponents : <div className="job-list-empty-state">هیچ پروژه‌ای وجود ندارد</div>}
+                </ul>
+              </section>
+            </div>
+          </div>
         </div>
       </div>
     );
