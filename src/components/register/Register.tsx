@@ -8,8 +8,7 @@ export default class RegisterComponent extends Component<{}, State> {
   onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     if (this.isFormValid()) {
-      console.log('registeration form submitted');
-    } else {
+      console.log('Registeration form submitted');
     }
   };
   private isFormValid(): boolean {

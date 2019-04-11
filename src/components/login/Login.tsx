@@ -25,6 +25,7 @@ export default class LoginComponent extends Component<Props, State> {
   onSubmitLogin = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     if (this.isFormValid()) {
+      console.log('Login form submitted');
       // localStorage.setItem('token', 'true');
       this.setState({ redirectHome: true });
     }
