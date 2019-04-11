@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router';
 import Api from '../../api/Api';
 import User from '../../models/User';
-import '../../html-css/scss/user-main.scss';
-import '../../html-css/scss/user.scss';
+import './user.scss';
 import SkillType from '../../enums/SkillType';
 import ProjectSkill from '../../models/ProjectSkill';
 import SkillSelector from '../skillSelector/SkillSelector';
@@ -12,22 +11,21 @@ import SkillList from '../skillList/SkillList';
 export default class UserComponent extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = {user: new User(), allSkills: []};
+    this.state = { user: new User(), allSkills: [] };
   }
 
   componentWillMount(): void {
     const userId = this.isCurrentUser() ? this.props.currentUserId : this.props.match.params.userId;
     Api.getUser(userId).then(res => {
-      this.setState({ ...this.state, user: res.data });
+      if (res) this.setState({ ...this.state, user: res.data });
     });
     if (this.isCurrentUser()) {
-      Api.getAllSkills().then(res => this.setState({ ...this.state, allSkills: res.data }));
+      Api.getAllSkills().then(res => res && this.setState({ ...this.state, allSkills: res.data }));
     }
   }
 
   private isCurrentUser(): boolean {
-    return this.props.location.pathname.includes('profile')
-      || this.props.match.params.userId === this.props.currentUserId;
+    return this.props.location.pathname.includes('profile') || this.props.match.params.userId === this.props.currentUserId;
   }
 
   private deleteSkill = (skillName: string) => {
@@ -44,7 +42,7 @@ export default class UserComponent extends Component<Props, State> {
   private updateUserSkills = (newSkills: ProjectSkill[]) => {
     let user = { ...this.state.user };
     user.skills = newSkills;
-    this.setState({...this.state, user});
+    this.setState({ ...this.state, user });
   };
   private getOtherSkills = (): ProjectSkill[] => {
     return this.state.allSkills.filter(skill => this.state.user.skills.filter(userSkill => userSkill.name === skill.name).length === 0);

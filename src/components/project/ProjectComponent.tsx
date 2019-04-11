@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router';
-import '../../html-css/scss/project.scss';
+import './project.scss';
 import Project from '../../models/Project';
 import Api from '../../api/Api';
 import { DateUtil } from '../../utils/DateUtil';

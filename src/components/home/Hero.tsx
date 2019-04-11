@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './hero.scss';
 
 export default class Hero extends Component<Props, State> {
   submitSearchProjects = (event: React.FormEvent<HTMLFormElement>): void => {

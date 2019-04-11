@@ -9,6 +9,7 @@ import LoginComponent from './components/login/Login';
 import ProjectComponent from './components/project/ProjectComponent';
 import UserComponent from './components/user/UserComponent';
 import RegisterComponent from './components/register/Register';
+import './sass/general.scss';
 
 class App extends Component<Props, State> {
   constructor(props: Props) {

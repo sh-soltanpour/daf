@@ -4,7 +4,7 @@ import Api from '../../api/Api';
 import Hero from './Hero';
 import ProjectListItemComponent from './JobItem';
 import Sidebar from './Sidebar';
-import '../../html-css/scss/style.scss';
+import './home.scss';
 import { StringUtil } from '../../utils/StringUtil';
 
 export default class HomeComponent extends Component<Props, State> {

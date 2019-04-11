@@ -1,3 +1,4 @@
+@import '../../sass/shared/vars';
 $avatar-height: 200px;
 #slider {
   padding: 75px 0;
@@ -8,6 +9,7 @@ $avatar-height: 200px;
   align-items: flex-end;
   .user-avatar {
     flex: 0 0 $avatar-height;
+    min-height: 100px;
     margin-left: 20px;
     border-radius: 20px;
     padding: 10px;

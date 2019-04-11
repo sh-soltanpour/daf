@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import logo from '../../html-css/assets/images/logo.png';
-import '../../html-css/scss/login.scss';
+import './login.scss';
 import ToastUtil from '../../utils/ToastUtil';
 import LoginSlider from './LoginSlider';
 
