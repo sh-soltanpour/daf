@@ -1,6 +1,8 @@
 #wrapper {
-  //display: flex;
-  //padding-top: 20px;
+  .home-wrapper {
+    display: flex;
+    padding-top: 70px;
+  }
 }
 .search-box {
   width: 100%;
@@ -71,6 +73,12 @@ aside {
 #job-list-wrapper {
   flex: 1 0 0;
   min-width: 0;
+  .job-list-empty-state {
+    padding: 20px;
+    background: #ffffff;
+    margin: 0 0 15px;
+    box-shadow: $box-shadow;
+  }
   .job-list {
     padding: 0 25px 25px;
     padding-left: 0;
