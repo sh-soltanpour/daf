@@ -134,7 +134,7 @@ export default class RegisterComponent extends Component<{}, State> {
               </div>
 
               <button type="submit" className="signup-button">
-                ورود
+                ثبت‌نام
               </button>
               <p className="message">
                 <span>قبلا ثبت‌نام کرده‌اید؟ </span>
