@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import logo from '../../html-css/assets/images/logo.png';
 import '../../html-css/scss/login.scss';
+import ToastUtil from '../../utils/ToastUtil';
 import LoginSlider from './LoginSlider';
-import { Link, Redirect } from 'react-router-dom';
 
 export default class LoginComponent extends Component<Props, State> {
+  private isFormValid(): boolean {
+    const { password, username } = this.state;
+    if (!password || !username) {
+      ToastUtil.error('لطفا همه‌ی فیلدها را کامل کنید');
+      return false;
+    }
+    return true;
+  }
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -15,8 +24,10 @@ export default class LoginComponent extends Component<Props, State> {
   }
   onSubmitLogin = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    localStorage.setItem('token', 'true');
-    this.setState({ redirectHome: true });
+    if (this.isFormValid()) {
+      // localStorage.setItem('token', 'true');
+      this.setState({ redirectHome: true });
+    }
   };
   onUsernameChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({ username: event.target.value });
@@ -36,10 +47,22 @@ export default class LoginComponent extends Component<Props, State> {
             <form className="register-form" onSubmit={this.onSubmitLogin}>
               <div className="row">
                 <div className="col-12">
-                  <input type="text" className="ltr rtl-placeholder" placeholder="نام کاربری" onChange={this.onUsernameChange} />
+                  <input
+                    name="username"
+                    type="text"
+                    className="ltr rtl-placeholder"
+                    placeholder="نام کاربری"
+                    onChange={this.onUsernameChange}
+                  />
                 </div>
                 <div className="col-12">
-                  <input type="password" className="ltr rtl-placeholder" placeholder="کلمه عبور" onChange={this.onPasswordChange} />
+                  <input
+                    name="password"
+                    type="password"
+                    className="ltr rtl-placeholder"
+                    placeholder="کلمه عبور"
+                    onChange={this.onPasswordChange}
+                  />
                 </div>
               </div>
 

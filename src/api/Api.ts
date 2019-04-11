@@ -1,5 +1,5 @@
 import axios, { AxiosPromise } from 'axios';
-import { toast, ToastId, cssTransition } from 'react-toastify';
+import { ToastId } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BidRequestedResponse from '../models/BidRequestedResponse';
 import Project from '../models/Project';
@@ -7,7 +7,7 @@ import ProjectListItem from '../models/ProjectListItem';
 import ProjectSkill from '../models/ProjectSkill';
 import User from '../models/User';
 import UserListItem from '../models/UserListItem';
-import { toastDuration } from '../utils/ToastUtil';
+import ToastUtil from '../utils/ToastUtil';
 
 class ApiClass {
   private axiosInstance = axios.create({
@@ -15,15 +15,13 @@ class ApiClass {
   });
   currentToastId: ToastId | undefined;
   constructor() {
-    toast.configure({ draggable: false, closeButton: false, hideProgressBar: true });
-
     this.axiosInstance.interceptors.response.use(
       response => {
         return response;
       },
       error => {
         if (error == 'Error: Network Error') {
-          toast.error('از اتصال اینترنت خود مطمئن شوید');
+          ToastUtil.error('از اتصال اینترنت خود مطمئن شوید');
         } else if (error) {
         }
         // console.log(
