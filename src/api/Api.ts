@@ -13,7 +13,6 @@ class ApiClass {
   private axiosInstance = axios.create({
     baseURL: 'http://localhost:8081/'
   });
-  currentToastId: ToastId | undefined;
   constructor() {
     this.axiosInstance.interceptors.response.use(
       response => {
@@ -22,15 +21,9 @@ class ApiClass {
       error => {
         if (error == 'Error: Network Error') {
           ToastUtil.error('از اتصال اینترنت خود مطمئن شوید');
-        } else if (error) {
+        } else if (error.response.data.message === "Entered amount is not valid") {
+          ToastUtil.error('مقدار وارد شده از سقف پروژه بیشتر است')
         }
-        // console.log(
-        // 'TCL: NetworkClass -> constructor -> error',
-        // error,
-        // typeof error,
-        // error == 'Error: Network Error',
-        // JSON.stringify(error)
-        // );
       }
     );
   }

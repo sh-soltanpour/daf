@@ -16,7 +16,7 @@ export default class SkillList extends Component<Props, {}> {
   }
 
   private getOnClick(skill: ProjectSkill): (skillName: string) => void {
-    switch (this.props.type) {
+    switch (this.getSkillType(skill)) {
       case SkillType.deletable:
         return this.props.onDelete;
       case SkillType.endorsable:
