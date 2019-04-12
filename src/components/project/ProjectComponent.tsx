@@ -6,6 +6,8 @@ import Api from '../../api/Api';
 import {DateUtil} from '../../utils/DateUtil';
 import SkillList from '../skillList/SkillList';
 import {StringUtil} from '../../utils/StringUtil';
+import SkillType from '../../enums/SkillType';
+import ToastUtil from '../../utils/ToastUtil';
 
 export default class ProjectComponent extends Component<Props, State> {
   constructor(props: Props) {
@@ -65,6 +67,10 @@ export default class ProjectComponent extends Component<Props, State> {
   };
   private sendBidRequest = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if(this.state.bidAmount === 0) {
+      ToastUtil.error('مقدار وارد شده صحیح نیست');
+      return
+    }
     Api.bidRequest(this.state.project.id, this.state.bidAmount).then(res => {
         if (res)
           this.setState({...this.state, bidRequested: true, project: res.data})
@@ -93,7 +99,7 @@ export default class ProjectComponent extends Component<Props, State> {
           <h4>ثبت پیشنهاد</h4>
           <form onSubmit={this.sendBidRequest} className="bid-form">
             <div className="input-wrapper">
-              <input value={this.state.bidAmount} type="number" onChange={this.changeBidAmount}
+              <input type="number" onChange={this.changeBidAmount}
                      placeholder="پیشنهاد خود را وارد کنید"/>
               <span className="bid-label">تومان</span>
             </div>
@@ -142,7 +148,7 @@ export default class ProjectComponent extends Component<Props, State> {
             </div>
             <div className="project-skills">
               <h4>مهارت‌های لازم:</h4>
-              <SkillList skills={skills}/>
+              <SkillList type={SkillType.simple} skills={skills}/>
             </div>
             <div className="project-form">{this.projectForm()}</div>
           </div>
