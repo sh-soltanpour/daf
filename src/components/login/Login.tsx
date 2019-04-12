@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
-import './login.scss';
 import ToastUtil from '../../utils/ToastUtil';
-import LoginSlider from './LoginSlider';
+import './login.scss';
+import LoginSlider from '../loginSlider/LoginSlider';
 
 export default class LoginComponent extends Component<Props, State> {
   private isFormValid(): boolean {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import UserListItem from '../../models/UserListItem';
+import UserListItem from '../../../models/UserListItem';
 import { Link } from 'react-router-dom';
+import './sidebarUserItem.scss';
 
 export default class SidebarUserItem extends Component<Props, State> {
   render() {

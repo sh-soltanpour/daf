@@ -1,26 +1,26 @@
-import React, {Component} from 'react';
-import {RouteComponentProps} from 'react-router';
+import React, { Component } from 'react';
+import { RouteComponentProps } from 'react-router';
 import Api from '../../api/Api';
 import User from '../../models/User';
-import './user.scss';
 import SkillType from '../../enums/SkillType';
 import ProjectSkill from '../../models/ProjectSkill';
+import './user.scss';
 import SkillSelector from '../skillSelector/SkillSelector';
 import SkillList from '../skillList/SkillList';
 
 export default class UserComponent extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = {user: new User(), allSkills: []};
+    this.state = { user: new User(), allSkills: [] };
   }
 
   componentWillMount(): void {
     const userId = this.isCurrentUser() ? this.props.currentUserId : this.props.match.params.userId;
     Api.getUser(userId).then(res => {
-      if (res) this.setState({...this.state, user: res.data});
+      if (res) this.setState({ ...this.state, user: res.data });
     });
     if (this.isCurrentUser()) {
-      Api.getAllSkills().then(res => res && this.setState({...this.state, allSkills: res.data}));
+      Api.getAllSkills().then(res => res && this.setState({ ...this.state, allSkills: res.data }));
     }
   }
 
@@ -40,16 +40,15 @@ export default class UserComponent extends Component<Props, State> {
         this.updateUserSkills(res.data);
         const user = this.state.user;
         const skill = user.skills.find(skill => skill.name === skillName);
-        if(skill)
-          skill.endorsed = true;
-        this.setState({...this.state, user})
+        if (skill) skill.endorsed = true;
+        this.setState({ ...this.state, user });
       }
     });
   };
   private updateUserSkills = (newSkills: ProjectSkill[]) => {
-    let user = {...this.state.user};
+    let user = { ...this.state.user };
     user.skills = newSkills;
-    this.setState({...this.state, user});
+    this.setState({ ...this.state, user });
   };
   private getOtherSkills = (): ProjectSkill[] => {
     return this.state.allSkills.filter(skill => this.state.user.skills.filter(userSkill => userSkill.name === skill.name).length === 0);
@@ -63,14 +62,14 @@ export default class UserComponent extends Component<Props, State> {
     return (
       <main>
         <section id="slider">
-          <div className="slider-container container"/>
+          <div className="slider-container container" />
         </section>
 
         <div id="wrapper" className="container">
           <div className="user-header-wrapper">
             <div className="user-header-container">
               <div className="user-avatar">
-                <img src={this.state.user.profilePictureUrl} alt=""/>
+                <img src={this.state.user.profilePictureUrl} alt="" />
               </div>
               <div className="user-content">
                 <h3 className="user-name">{this.state.user.firstName + ' ' + this.state.user.lastName}</h3>
@@ -84,7 +83,7 @@ export default class UserComponent extends Component<Props, State> {
           </div>
 
           <div className="user-skills">
-            {this.isCurrentUser() && <SkillSelector onSubmit={this.addSkill} skills={this.getOtherSkills()}/>}
+            {this.isCurrentUser() && <SkillSelector onSubmit={this.addSkill} skills={this.getOtherSkills()} />}
             <SkillList
               skills={this.state.user.skills}
               type={this.isCurrentUser() ? SkillType.deletable : SkillType.endorsable}

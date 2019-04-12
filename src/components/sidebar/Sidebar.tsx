@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import UserListItem from '../../models/UserListItem';
 import Api from '../../api/Api';
-import SidebarUserItem from './SidebarUserItem';
+import UserListItem from '../../models/UserListItem';
 import { StringUtil } from '../../utils/StringUtil';
+import './sidebar.scss';
+import SidebarUserItem from './sidebarUserItem/SidebarUserItem';
 
 export default class Sidebar extends Component<Props, State> {
   searchSubmit(searchInput: string): void {

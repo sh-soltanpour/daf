@@ -1,0 +1,11 @@
+@import '../../sass/shared/vars';
+
+aside {
+  flex: 0 0 240px;
+  padding: 0;
+  #user-list-wrapper {
+    border-radius: 4px;
+    .user-list {
+    }
+  }
+}

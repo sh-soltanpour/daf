@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect, RouteComponentProps } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
+import './header.scss';
 
 export default class Header extends Component<Props, State> {
   constructor(props: Props) {

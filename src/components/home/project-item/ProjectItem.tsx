@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import ProjectListItem from '../../models/ProjectListItem';
+import ProjectListItem from '../../../models/ProjectListItem';
 import { Link } from 'react-router-dom';
-import { DateUtil } from '../../utils/DateUtil';
-import { StringUtil } from '../../utils/StringUtil';
+import { DateUtil } from '../../../utils/DateUtil';
+import { StringUtil } from '../../../utils/StringUtil';
+import './projectItem.scss';
 
 export default class ProjectListItemComponent extends Component<Props, State> {
   constructor(props: Props) {

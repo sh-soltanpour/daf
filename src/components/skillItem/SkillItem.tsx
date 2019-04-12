@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SkillType from '../../enums/SkillType';
+import './skillItem.scss';
 
 export default class SkillItem extends Component<Props, State> {
   endorsedClass(): string {

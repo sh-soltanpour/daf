@@ -1,7 +1,8 @@
+import 'bootstrap/scss/bootstrap.scss';
+import './assets/fonts/flaticons/flaticon.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './assets/fonts/flaticons/flaticon.css';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));

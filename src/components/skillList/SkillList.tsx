@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import SkillItem from '../skillItem/SkillItem';
-import ProjectSkill from '../../models/ProjectSkill';
 import SkillType from '../../enums/SkillType';
+import ProjectSkill from '../../models/ProjectSkill';
+import './skillList.scss';
+import SkillItem from '../skillItem/SkillItem';
 
 export default class SkillList extends Component<Props, {}> {
   static defaultProps = {

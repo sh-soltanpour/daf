@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import ToastUtil from '../../utils/ToastUtil';
-import LoginSlider from '../login/LoginSlider';
+import '../login/login.scss';
+import LoginSlider from '../loginSlider/LoginSlider';
 
 export default class RegisterComponent extends Component<{}, State> {
   onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {

@@ -1,0 +1,29 @@
+.add-skill-form-container {
+  display: flex;
+  .add-skill-form {
+    flex: 0 0 auto;
+    height: 100%;
+    display: flex;
+    border: 3px solid #ffffff;
+    background: #ffffff;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 2px;
+    box-shadow: 0 1px 4px rgba(#000000, 0.2), inset 0 0 2px rgba(#000000, 0.05);
+    .add-skill-input {
+      background: #f9f9f9;
+      border: 1px solid #eeeeee;
+      width: 200px;
+      padding: 5px 8px;
+    }
+    button[type='submit'] {
+      flex: 0 0 auto;
+      background: #0097a7;
+      border: none;
+      color: #ffffff;
+      padding: 0 10px;
+      margin-right: 6px;
+      border-radius: 3px;
+    }
+  }
+}

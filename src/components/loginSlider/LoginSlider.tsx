@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './slideshow.scss';
+import './loginSlider.scss';
 
 export default class LoginSlider extends Component {
   render() {

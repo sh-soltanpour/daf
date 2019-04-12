@@ -1,0 +1,120 @@
+@import '../../../sass/shared/vars';
+.job-item-container {
+  > a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .job-item {
+    display: flex;
+    padding: 20px;
+    background: #ffffff;
+    margin: 0 0 15px;
+    box-shadow: $box-shadow;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    &:hover {
+      box-shadow: $box-shadow-hover;
+    }
+    .job-item-avatar {
+      flex: 0 0 map-get($map: $job-item, $key: image-height);
+      height: map-get($map: $job-item, $key: image-height);
+      width: map-get($map: $job-item, $key: image-height);
+      background: #fafafa;
+      border: 1px solid #eeeeee;
+      margin-left: 20px;
+      border-radius: 4px;
+    }
+    .job-item-content {
+      min-width: 0;
+      flex: 1 0 0;
+      padding: 5px 0;
+      .job-item-title-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        .job-item-title {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        .job-item-date {
+          display: flex;
+          font-size: 12px;
+          background: #f5f5f5;
+          padding: 3px 6px;
+          border-radius: 3px;
+          color: #555555;
+          .job-item-date-label {
+            margin-left: 5px;
+          }
+        }
+      }
+      .job-item-desc {
+        $font-size: 14px;
+        $line-height: 1.5;
+        font-size: $font-size;
+        line-height: $line-height;
+        height: $font-size * $line-height * 2; // 2 lines
+        margin-bottom: 0;
+        overflow: hidden;
+        color: #444444;
+      }
+      .job-item-footer {
+        .budget-container {
+          margin-top: 6px;
+          font-size: 14px;
+          font-weight: bold;
+          color: #00838f;
+          display: flex;
+          .budget-label {
+            margin-left: 4px;
+          }
+        }
+        .skills-container {
+          display: flex;
+          align-items: center;
+          margin-top: 8px;
+          .skills-label {
+            margin-left: 5px;
+            font-size: 12px;
+            color: #999999;
+          }
+          .skill-list {
+            display: flex;
+            margin: 0;
+            .skill-item {
+              color: #777777;
+              font-weight: bold;
+              flex: 0 0 auto;
+              padding: 3px 5px;
+              background: #f9f9f9;
+              border-radius: 3px;
+              border: 1px solid #eeeeee;
+              margin: 0 2px;
+              font-family: sans-serif;
+              font-size: 12px;
+              &:first-child {
+                margin-right: 0;
+              }
+              &:last-child {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.ended {
+    opacity: 0.75;
+    .job-item-content {
+      .job-item-title-container {
+        .job-item-date {
+          color: #ffffff;
+          background: #006064;
+        }
+      }
+    }
+  }
+}

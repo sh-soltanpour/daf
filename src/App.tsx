@@ -1,7 +1,7 @@
+import './sass/general.scss';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import './App.css';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import HomeComponent from './components/home/Home';
@@ -9,7 +9,6 @@ import LoginComponent from './components/login/Login';
 import ProjectComponent from './components/project/ProjectComponent';
 import UserComponent from './components/user/UserComponent';
 import RegisterComponent from './components/register/Register';
-import './sass/general.scss';
 
 class App extends Component<Props, State> {
   constructor(props: Props) {

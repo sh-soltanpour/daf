@@ -91,41 +91,6 @@ $padding: 35px;
       font-weight: bold;
       color: #00838f;
     }
-    .skills-list {
-      display: flex;
-      direction: ltr;
-      margin-top: 10px;
-      .skill-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 5px 7px;
-        border-radius: 4px;
-        margin: 4px 7px;
-        background: #fff;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-        position: relative;
-        cursor: pointer;
-        .skill-name {
-          line-height: 1;
-          display: inline-block;
-          margin: 2px 10px 0 3px;
-        }
-        .skill-rating {
-          display: inline-block;
-          background: #c8eef3;
-          text-align: center;
-          color: #006064;
-          height: 25px;
-          min-width: 25px;
-          padding: 7px 5px 5px;
-          margin: 0;
-          font-size: 14px;
-          border-radius: 3px;
-          position: relative;
-        }
-      }
-    }
   }
   .project-form {
     .already-bid {

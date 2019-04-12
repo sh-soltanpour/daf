@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import './home.scss';
 import ProjectListItem from '../../models/ProjectListItem';
 import Api from '../../api/Api';
-import Hero from './Hero';
-import ProjectListItemComponent from './JobItem';
-import Sidebar from './Sidebar';
-import './home.scss';
+import Hero from '../hero/Hero';
+import ProjectListItemComponent from './project-item/ProjectItem';
+import Sidebar from '../sidebar/Sidebar';
 import { StringUtil } from '../../utils/StringUtil';
 
 export default class HomeComponent extends Component<Props, State> {
