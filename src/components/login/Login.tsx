@@ -54,6 +54,7 @@ export default class LoginComponent extends Component<Props, State> {
                     className="ltr rtl-placeholder"
                     placeholder="نام کاربری"
                     onChange={this.onUsernameChange}
+                    required
                   />
                 </div>
                 <div className="col-12">
@@ -63,6 +64,7 @@ export default class LoginComponent extends Component<Props, State> {
                     className="ltr rtl-placeholder"
                     placeholder="کلمه عبور"
                     onChange={this.onPasswordChange}
+                    required
                   />
                 </div>
               </div>

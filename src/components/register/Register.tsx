@@ -66,16 +66,37 @@ export default class RegisterComponent extends Component<{}, State> {
             <form className="register-form" onSubmit={this.onSubmit}>
               <div className="row">
                 <div className="col-6">
-                  <input name="firstName" type="text" className="rtl rtl-placeholder" placeholder="نام" onChange={this.onChange} />
+                  <input name="firstName" type="text" className="rtl rtl-placeholder" placeholder="نام" onChange={this.onChange} required />
                 </div>
                 <div className="col-6">
-                  <input name="lastName" type="text" className="rtl rtl-placeholder" placeholder="نام خانوادگی" onChange={this.onChange} />
+                  <input
+                    name="lastName"
+                    type="text"
+                    className="rtl rtl-placeholder"
+                    placeholder="نام خانوادگی"
+                    onChange={this.onChange}
+                    required
+                  />
                 </div>
                 <div className="col-12">
-                  <input name="username" type="text" className="ltr rtl-placeholder" placeholder="نام کاربری" onChange={this.onChange} />
+                  <input
+                    name="username"
+                    type="text"
+                    className="ltr rtl-placeholder"
+                    placeholder="نام کاربری"
+                    onChange={this.onChange}
+                    required
+                  />
                 </div>
                 <div className="col-6">
-                  <input name="password" type="password" className="ltr rtl-placeholder" placeholder="کلمه عبور" onChange={this.onChange} />
+                  <input
+                    name="password"
+                    type="password"
+                    className="ltr rtl-placeholder"
+                    placeholder="کلمه عبور"
+                    onChange={this.onChange}
+                    required
+                  />
                 </div>
                 <div className="col-6">
                   <input
@@ -84,10 +105,18 @@ export default class RegisterComponent extends Component<{}, State> {
                     className="ltr rtl-placeholder"
                     placeholder="تکرار کلمه عبور"
                     onChange={this.onChange}
+                    required
                   />
                 </div>
                 <div className="col-12">
-                  <input name="jobTitle" type="text" className="rtl rtl-placeholder" placeholder="عنوان شغلی" onChange={this.onChange} />
+                  <input
+                    name="jobTitle"
+                    type="text"
+                    className="rtl rtl-placeholder"
+                    placeholder="عنوان شغلی"
+                    onChange={this.onChange}
+                    required
+                  />
                 </div>
                 <div className="col-12">
                   <input
@@ -96,15 +125,16 @@ export default class RegisterComponent extends Component<{}, State> {
                     className="ltr rtl-placeholder"
                     placeholder="لینک عکس پروفایل"
                     onChange={this.onChange}
+                    required
                   />
                 </div>
                 <div className="col-12">
-                  <textarea name="bio" className="rtl-placeholder" cols={30} rows={5} placeholder="بیو" onChange={this.onChange} />
+                  <textarea name="bio" className="rtl-placeholder" cols={30} rows={5} placeholder="بیو" onChange={this.onChange} required />
                 </div>
               </div>
 
               <button type="submit" className="signup-button">
-                ورود
+                ثبت‌نام
               </button>
               <p className="message">
                 <span>قبلا ثبت‌نام کرده‌اید؟ </span>
