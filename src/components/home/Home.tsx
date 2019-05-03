@@ -31,7 +31,7 @@ export default class HomeComponent extends Component<Props, State> {
   };
   constructor(props: Props) {
     super(props);
-    this.state = { projectsList: [], isSearching: false, pageSize: 5, pageNumber: 1 };
+    this.state = { projectsList: [], isSearching: false, pageSize: 5, pageNumber: 1, showLoadMore: false };
   }
   componentWillMount() {
     this.getAllProjects();
@@ -40,12 +40,12 @@ export default class HomeComponent extends Component<Props, State> {
     const { pageSize, pageNumber, projectsList } = this.state;
     Api.getAllProjects(pageSize, pageNumber).then(response => {
       if (!response) return;
-      this.setState({ projectsList: [...projectsList, ...response.data] });
+      this.setState({ projectsList: [...projectsList, ...response.data], showLoadMore: response.data.length >= pageSize });
     });
   }
 
   render() {
-    const { projectsList, isSearching } = this.state;
+    const { projectsList, isSearching, showLoadMore } = this.state;
     const projectsComponents = projectsList
       // .sort((a, b) => a.deadline - b.deadline)
       .map(p => <ProjectListItemComponent key={p.id} project={p} />);
@@ -62,9 +62,11 @@ export default class HomeComponent extends Component<Props, State> {
                 <ul className="job-list">
                   {projectsComponents.length > 0 ? projectsComponents : <div className="job-list-empty-state">هیچ پروژه‌ای وجود ندارد</div>}
                 </ul>
-                <button className="load-more-btn" onClick={this.onLoadMore}>
-                  نمایش بیشتر
-                </button>
+                {showLoadMore && !isSearching && (
+                  <button className="load-more-btn" onClick={this.onLoadMore}>
+                    نمایش بیشتر
+                  </button>
+                )}
               </section>
             </div>
           </div>
@@ -79,4 +81,5 @@ interface State {
   isSearching: boolean;
   readonly pageSize: number;
   pageNumber: number;
+  showLoadMore: boolean;
 }
