@@ -5,29 +5,51 @@ import Api from '../../api/Api';
 import Hero from '../hero/Hero';
 import ProjectListItemComponent from './project-item/ProjectItem';
 import Sidebar from '../sidebar/Sidebar';
-import { StringUtil } from '../../utils/StringUtil';
 
 export default class HomeComponent extends Component<Props, State> {
-  onSearchProjects = (searchInput: string): void => {
-    const { projectsListCache } = this.state;
-    this.setState({ projectsList: StringUtil.searchStringInArray(projectsListCache, searchInput, x => x.title) });
+  onSearchProjects = (searchTerm: string): void => {
+    if (searchTerm === '') {
+      this.setState({ pageNumber: 0 });
+      this.getAllProjects();
+    } else {
+      Api.searchProjects(searchTerm).then(response => {
+        if (!response) {
+          this.setState({ projectsList: [], isSearching: true });
+        } else {
+          this.setState({
+            projectsList: response.data,
+            isSearching: true
+          });
+        }
+      });
+    }
+  };
+  onLoadMore = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const { pageNumber } = this.state;
+    this.setState({ pageNumber: pageNumber + 1 });
+    this.getAllProjects();
   };
   constructor(props: Props) {
     super(props);
-    this.state = { projectsList: [], projectsListCache: [] };
+    this.state = { projectsList: [], isSearching: false, pageSize: 5, pageNumber: 1 };
   }
   componentWillMount() {
-    Api.getAllProjects().then(response => {
+    this.getAllProjects();
+  }
+  private getAllProjects() {
+    const { pageSize, pageNumber, projectsList } = this.state;
+    Api.getAllProjects(pageSize, pageNumber).then(response => {
       if (!response) return;
-      this.setState({ projectsListCache: response.data });
-      this.onSearchProjects('');
+      this.setState({ projectsList: [...projectsList, ...response.data] });
     });
   }
+
   render() {
-    const { projectsList } = this.state;
+    const { projectsList, isSearching } = this.state;
     const projectsComponents = projectsList
-      .sort((a, b) => a.deadline - b.deadline)
+      // .sort((a, b) => a.deadline - b.deadline)
       .map(p => <ProjectListItemComponent key={p.id} project={p} />);
+
     return (
       <div>
         <Hero onSearch={this.onSearchProjects} />
@@ -40,6 +62,9 @@ export default class HomeComponent extends Component<Props, State> {
                 <ul className="job-list">
                   {projectsComponents.length > 0 ? projectsComponents : <div className="job-list-empty-state">هیچ پروژه‌ای وجود ندارد</div>}
                 </ul>
+                <button className="load-more-btn" onClick={this.onLoadMore}>
+                  نمایش بیشتر
+                </button>
               </section>
             </div>
           </div>
@@ -51,5 +76,7 @@ export default class HomeComponent extends Component<Props, State> {
 interface Props {}
 interface State {
   projectsList: ProjectListItem[];
-  projectsListCache: ProjectListItem[];
+  isSearching: boolean;
+  readonly pageSize: number;
+  pageNumber: number;
 }

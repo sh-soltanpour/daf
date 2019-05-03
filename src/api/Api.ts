@@ -21,18 +21,26 @@ class ApiClass {
       error => {
         if (error == 'Error: Network Error') {
           ToastUtil.error('از اتصال اینترنت خود مطمئن شوید');
-        } else if (error.response.data.message === "Entered amount is not valid") {
-          ToastUtil.error('مقدار وارد شده از سقف پروژه بیشتر است')
+        } else if (error.response.data.message === 'Entered amount is not valid') {
+          ToastUtil.error('مقدار وارد شده از سقف پروژه بیشتر است');
         }
       }
     );
+  }
+
+  searchProjects(searchTerm: string) {
+    return this.axiosInstance.get<ProjectListItem[]>('/projects/search', { params: { q: searchTerm } });
+  }
+  searchUsers(searchTerm: string) {
+    return this.axiosInstance.get<UserListItem[]>('/users/search', { params: { q: searchTerm } });
   }
 
   getAllUsers() {
     return this.axiosInstance.get<UserListItem[]>('/users');
   }
 
-  getAllProjects() {
+  getAllProjects(pageSize: number, pageNumber: number) {
+    // TODO: add page size and page number to request
     return this.axiosInstance.get<ProjectListItem[]>('/projects');
   }
 
