@@ -9,7 +9,7 @@ import Sidebar from '../sidebar/Sidebar';
 export default class HomeComponent extends Component<Props, State> {
   onSearchProjects = (searchTerm: string): void => {
     if (searchTerm === '') {
-      this.setState({ pageNumber: 0 });
+      this.pageNumber = 0;
       this.getAllProjects();
     } else {
       Api.searchProjects(searchTerm).then(response => {
@@ -25,22 +25,23 @@ export default class HomeComponent extends Component<Props, State> {
     }
   };
   onLoadMore = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const { pageNumber } = this.state;
-    this.setState({ pageNumber: pageNumber + 1 });
+    this.pageNumber += 1;
     this.getAllProjects();
   };
   constructor(props: Props) {
     super(props);
-    this.state = { projectsList: [], isSearching: false, pageSize: 5, pageNumber: 0, showLoadMore: false };
+    this.state = { projectsList: [], isSearching: false, showLoadMore: false };
   }
   componentWillMount() {
     this.getAllProjects();
   }
+  pageSize = 5;
+  pageNumber = 0;
   private getAllProjects() {
-    const { pageSize, pageNumber, projectsList } = this.state;
-    Api.getAllProjects(pageSize, pageNumber).then(response => {
+    const { projectsList } = this.state;
+    Api.getAllProjects(this.pageSize, this.pageNumber).then(response => {
       if (!response) return;
-      this.setState({ projectsList: [...projectsList, ...response.data], showLoadMore: response.data.length >= pageSize });
+      this.setState({ projectsList: [...projectsList, ...response.data], showLoadMore: response.data.length >= this.pageSize });
     });
   }
 
@@ -79,7 +80,7 @@ interface Props {}
 interface State {
   projectsList: ProjectListItem[];
   isSearching: boolean;
-  readonly pageSize: number;
-  pageNumber: number;
+  // readonly pageSize: number;
+  // pageNumber: number;
   showLoadMore: boolean;
 }
