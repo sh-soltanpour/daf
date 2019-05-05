@@ -10,6 +10,7 @@ export default class HomeComponent extends Component<Props, State> {
   onSearchProjects = (searchTerm: string): void => {
     if (searchTerm === '') {
       this.pageNumber = 0;
+      this.setState({ isSearching: false, projectsList: [] });
       this.getAllProjects();
     } else {
       Api.searchProjects(searchTerm).then(response => {
@@ -41,7 +42,10 @@ export default class HomeComponent extends Component<Props, State> {
     const { projectsList } = this.state;
     Api.getAllProjects(this.pageSize, this.pageNumber).then(response => {
       if (!response) return;
-      this.setState({ projectsList: [...projectsList, ...response.data], showLoadMore: response.data.length >= this.pageSize });
+      this.setState({
+        projectsList: this.pageNumber === 0 ? response.data : [...projectsList, ...response.data],
+        showLoadMore: response.data.length >= this.pageSize
+      });
     });
   }
 

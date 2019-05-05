@@ -1,5 +1,4 @@
-import axios, {AxiosPromise} from 'axios';
-import {ToastId} from 'react-toastify';
+import axios, { AxiosPromise } from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import BidRequestedResponse from '../models/BidRequestedResponse';
 import Project from '../models/Project';
@@ -11,7 +10,8 @@ import ToastUtil from '../utils/ToastUtil';
 
 class ApiClass {
   private axiosInstance = axios.create({
-    baseURL: 'http://localhost:8081/'
+    // baseURL: 'http://localhost:8081/'
+    baseURL: 'http://172.30.49.248:8081/'
   });
 
   constructor() {
@@ -30,11 +30,11 @@ class ApiClass {
   }
 
   searchProjects(searchTerm: string) {
-    return this.axiosInstance.get<ProjectListItem[]>('/projects/search', {params: {q: searchTerm}});
+    return this.axiosInstance.get<ProjectListItem[]>('/projects/search', { params: { q: searchTerm } });
   }
 
   searchUsers(searchTerm: string) {
-    return this.axiosInstance.get<UserListItem[]>('/users/search', {params: {q: searchTerm}});
+    return this.axiosInstance.get<UserListItem[]>('/users/search', { params: { q: searchTerm } });
   }
 
   getAllUsers() {
@@ -42,7 +42,7 @@ class ApiClass {
   }
 
   getAllProjects(pageSize: number, pageNumber: number) {
-    return this.axiosInstance.get<ProjectListItem[]>('/projects', {params: {pageNumber, pageSize}});
+    return this.axiosInstance.get<ProjectListItem[]>('/projects', { params: { pageNumber, pageSize } });
   }
 
   getProject(projectId: string): AxiosPromise<Project> {
@@ -71,8 +71,8 @@ class ApiClass {
   }
 
   deleteSkill(skillName: string): AxiosPromise<ProjectSkill[]> {
-    const data = {name: skillName};
-    return this.axiosInstance.delete('/users/skills', {data: data});
+    const data = { name: skillName };
+    return this.axiosInstance.delete('/users/skills', { data: data });
   }
 
   endroseSkill(skillName: string, endorsedUserId: string): AxiosPromise<ProjectSkill[]> {
@@ -92,7 +92,7 @@ class ApiClass {
   }
 
   addSkill(skillName: string): AxiosPromise<ProjectSkill[]> {
-    const data = {name: skillName};
+    const data = { name: skillName };
     return this.axiosInstance.post<ProjectSkill[]>('/users/skills', data);
   }
 }
