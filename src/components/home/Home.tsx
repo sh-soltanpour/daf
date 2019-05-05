@@ -31,7 +31,7 @@ export default class HomeComponent extends Component<Props, State> {
   };
   constructor(props: Props) {
     super(props);
-    this.state = { projectsList: [], isSearching: false, pageSize: 5, pageNumber: 1, showLoadMore: false };
+    this.state = { projectsList: [], isSearching: false, pageSize: 5, pageNumber: 0, showLoadMore: false };
   }
   componentWillMount() {
     this.getAllProjects();
