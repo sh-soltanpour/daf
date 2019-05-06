@@ -25,6 +25,9 @@ class ApiClass {
         } else if (error.response.data.message === 'Entered amount is not valid') {
           ToastUtil.error('مقدار وارد شده از سقف پروژه بیشتر است');
         }
+        else if (error.response.data.message ==='Access Denied'){
+          ToastUtil.error('شما اجازه دسترسی به این صفحه را ندارید');
+        }
       }
     );
   }

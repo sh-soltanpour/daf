@@ -28,7 +28,12 @@ export default class ProjectComponent extends Component<Props, State> {
     const projectId = this.props.match.params.projectId;
     Api.getProject(this.props.match.params.projectId).then(res => {
       this.setState({...this.state, project: res.data});
-    });
+    })
+      .catch(res => {
+
+      })
+    ;
+
     Api.bidRequested(projectId).then(res => {
       this.setState({...this.state, bidRequested: res.data.bidRequested});
     });
