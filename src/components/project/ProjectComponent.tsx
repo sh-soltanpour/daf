@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {RouteComponentProps} from 'react-router';
+import {Redirect, RouteComponentProps} from 'react-router';
 import './project.scss';
 import Project from '../../models/Project';
 import Api from '../../api/Api';
@@ -25,6 +25,8 @@ export default class ProjectComponent extends Component<Props, State> {
   }, 1000);
 
   componentWillMount() {
+    if (!this.isLoggedIn())
+      return;
     const projectId = this.props.match.params.projectId;
     Api.getProject(this.props.match.params.projectId).then(res => {
       this.setState({...this.state, project: res.data});
@@ -114,8 +116,13 @@ export default class ProjectComponent extends Component<Props, State> {
       );
     }
   }
-
+  private isLoggedIn(): boolean {
+    return localStorage.getItem("accessToken") !== null && localStorage.getItem("accessToken") !== undefined
+  }
   render(): JSX.Element {
+    if (!this.isLoggedIn()){
+      return <Redirect to={"/login"}/>
+    }
     const {budget, title, imageUrl, description, skills, deadline} = this.state.project;
     return (
       <div>

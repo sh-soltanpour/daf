@@ -32,11 +32,17 @@ class ApiClass {
       error => {
         if (error == 'Error: Network Error') {
           ToastUtil.error('از اتصال اینترنت خود مطمئن شوید');
-        } else if (error.response.data.message === 'Entered amount is not valid') {
+        }
+        else if (error.response.status === 403 && !error.response.data){
+          localStorage.clear();
+          window.location.pathname = "/login"
+        }
+        else if (error.response.data.message === 'Entered amount is not valid') {
           ToastUtil.error('مقدار وارد شده از سقف پروژه بیشتر است');
         } else if (error.response.data.message === 'Access Denied') {
           ToastUtil.error('شما اجازه دسترسی به این صفحه را ندارید');
         }
+
       }
     );
   }
