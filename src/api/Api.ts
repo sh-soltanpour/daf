@@ -54,7 +54,6 @@ class ApiClass {
   }
 
   getAllProjects(pageSize: number, pageNumber: number) {
-    console.log("inja chi", localStorage.key(0));
     return this.axiosInstance.get<ProjectListItem[]>('/projects', {params: {pageNumber, pageSize}});
   }
 

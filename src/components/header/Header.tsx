@@ -6,15 +6,15 @@ import './header.scss';
 export default class Header extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { logoutRedirect: false };
+    this.state = {};
   }
   logout = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
     localStorage.clear();
-    this.setState({ logoutRedirect: true });
+    this.props.history.push("/login");
   };
   render() {
     if (this.props.location.pathname === '/login' || this.props.location.pathname === '/register') return null;
-    if (this.state.logoutRedirect) return <Redirect to="/login" />;
+
     return (
       <header>
         <div className="container h-100">
@@ -38,5 +38,4 @@ export default class Header extends Component<Props, State> {
 }
 interface Props extends RouteComponentProps {}
 interface State {
-  logoutRedirect: boolean;
 }

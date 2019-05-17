@@ -5,7 +5,6 @@ import Api from '../../api/Api';
 import Hero from '../hero/Hero';
 import ProjectListItemComponent from './project-item/ProjectItem';
 import Sidebar from '../sidebar/Sidebar';
-import AuthGuard from '../AuthGuard';
 import {Redirect} from 'react-router';
 
 export default class HomeComponent extends Component<Props, State> {
@@ -39,6 +38,7 @@ export default class HomeComponent extends Component<Props, State> {
     if(this.isLoggedIn())
       this.getAllProjects();
   }
+
   private isLoggedIn(): boolean {
     return localStorage.getItem("accessToken") !== null && localStorage.getItem("accessToken") !== undefined
   }

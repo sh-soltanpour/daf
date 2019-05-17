@@ -32,7 +32,6 @@ export default class LoginComponent extends Component<Props, State> {
       const {password, username} = this.state;
       Api.login(username, password).then(response => {
         if (response.status === 200) {
-          console.log("response.data.accessToken", response.data);
           localStorage.setItem("accessToken", response.data.accessToken);
           localStorage.setItem("userId", username);
           this.setState({redirectHome: true})

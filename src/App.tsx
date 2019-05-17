@@ -9,8 +9,6 @@ import LoginComponent from './components/login/Login';
 import ProjectComponent from './components/project/ProjectComponent';
 import UserComponent from './components/user/UserComponent';
 import RegisterComponent from './components/register/Register';
-import {ConditionalRoute} from './components/ConditionalRouteProps';
-import Login from './components/login/Login';
 
 
 class App extends Component<Props, State> {
