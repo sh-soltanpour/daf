@@ -7,5 +7,8 @@ class ToastUtilsClass {
   error(content: ToastContent) {
     toast.error(content);
   }
+  success(content: ToastContent){
+    toast.success(content);
+  }
 }
 export default new ToastUtilsClass();

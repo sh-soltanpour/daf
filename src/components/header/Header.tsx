@@ -9,7 +9,7 @@ export default class Header extends Component<Props, State> {
     this.state = { logoutRedirect: false };
   }
   logout = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
-    // localStorage.clear();
+    localStorage.clear();
     this.setState({ logoutRedirect: true });
   };
   render() {

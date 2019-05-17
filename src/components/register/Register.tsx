@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import ToastUtil from '../../utils/ToastUtil';
 import '../login/login.scss';
 import LoginSlider from '../loginSlider/LoginSlider';
+import Api from '../../api/Api';
 
 export default class RegisterComponent extends Component<{}, State> {
   onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     if (this.isFormValid()) {
-      console.log('Registeration form submitted');
+      const { firstName, lastName, bio, imageUrl, jobTitle, password, username } = this.state;
+      Api.register(firstName, lastName, bio, imageUrl, jobTitle, password, username)
+        .then(response=>{
+          if (response.status === 200) {
+            ToastUtil.success('ثبت نام انجام شد')
+            this.setState({redirect: true})
+          }
+      }).catch(
+        response => {
+          ToastUtil.error('این نام کاربری در سیستم ثبت شده')
+        }
+      )
     }
   };
   private isFormValid(): boolean {
@@ -52,11 +64,19 @@ export default class RegisterComponent extends Component<{}, State> {
       repeatPassword: '',
       jobTitle: '',
       imageUrl: '',
-      bio: ''
+      bio: '',
+      redirect: false
     };
+  }
+  private isLoggedIn(): boolean {
+    return localStorage.getItem("accessToken") !== null && localStorage.getItem("accessToken") !== undefined
   }
 
   render() {
+    if (this.isLoggedIn())
+      return <Redirect to={"/"}/>;
+    if (this.state.redirect)
+      return <Redirect to={'/'}/>;
     return (
       <div>
         <div className="login-page">
@@ -162,4 +182,5 @@ interface State {
   jobTitle: string;
   imageUrl: string;
   bio: string;
+  redirect: boolean;
 }

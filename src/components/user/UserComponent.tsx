@@ -15,7 +15,7 @@ export default class UserComponent extends Component<Props, State> {
   }
 
   componentWillMount(): void {
-    const userId = this.isCurrentUser() ? this.props.currentUserId : this.props.match.params.userId;
+    const userId = this.isCurrentUser() ? this.getCurrentUserId() : this.props.match.params.userId;
     Api.getUser(userId).then(res => {
       if (res) this.setState({ ...this.state, user: res.data });
     });
@@ -25,7 +25,14 @@ export default class UserComponent extends Component<Props, State> {
   }
 
   private isCurrentUser(): boolean {
-    return this.props.location.pathname.includes('profile') || this.props.match.params.userId === this.props.currentUserId;
+    return this.props.location.pathname.includes('profile')
+      || this.props.match.params.userId === this.getCurrentUserId();
+  }
+  private getCurrentUserId(): string{
+    let id = localStorage.getItem("userId");
+    if (id === null)
+      return "";
+    return id;
   }
 
   private deleteSkill = (skillName: string) => {
