@@ -72,7 +72,7 @@ export default class ProjectComponent extends Component<Props, State> {
   };
   private sendBidRequest = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if(this.state.bidAmount === 0) {
+    if (this.state.bidAmount === 0) {
       ToastUtil.error('مقدار وارد شده صحیح نیست');
       return
     }
@@ -141,7 +141,7 @@ export default class ProjectComponent extends Component<Props, State> {
                   <li className="won-user">
                       <i className="flaticon-check-mark"/>
                       <span className="ml-2">برنده:</span>
-                      <span>وحید محمدی</span>
+                      <span>{this.getWinnerName()}</span>
                   </li>
                   }
                 </ul>
@@ -160,6 +160,13 @@ export default class ProjectComponent extends Component<Props, State> {
         </div>
       </div>
     );
+  }
+
+  private getWinnerName(): string {
+    if (this.state.project.winner) {
+      return this.state.project.winner.firstName + ' ' + this.state.project.winner.lastName;
+    }
+    return 'برنده ندارد';
   }
 }
 
