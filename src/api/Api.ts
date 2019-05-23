@@ -11,7 +11,7 @@ import LoginResponse from '../models/LoginResponse';
 
 class ApiClass {
   private axiosInstance = axios.create({
-    baseURL: 'http://localhost:8081/'
+    baseURL: 'http://localhost:8080/neyanboon'
     // baseURL: 'http://172.30.49.248:8081/'
   });
 
