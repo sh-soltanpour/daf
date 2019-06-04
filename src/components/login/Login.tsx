@@ -68,7 +68,7 @@ export default class LoginComponent extends Component<Props, State> {
                     name="username"
                     type="text"
                     className="ltr rtl-placeholder"
-                    placeholder="نام کاربری تستی عوض شده"
+                    placeholder="نام کاربری"
                     onChange={this.onUsernameChange}
                     required
                   />
